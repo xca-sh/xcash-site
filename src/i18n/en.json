@@ -1,0 +1,204 @@
+{
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it Works",
+    "integration": "Integration",
+    "pricing": "Pricing",
+    "security": "Security",
+    "docs": "Docs",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Open Source · Self-hosted · MIT License",
+    "title": "Xcash Gateway",
+    "phrases": ["Under Your Control", "Self-Hosted & Secure", "Zero Platform Fees", "Multi-Chain Ready", "Open Source Forever"],
+    "description": "Xcash is a self-hosted cryptocurrency payment gateway. Accept payments, manage deposits & withdrawals with full control over your private keys.",
+    "ctaStart": "Get Started Free",
+    "ctaGithub": "View on GitHub",
+    "pillChains": "100+ Chains Supported",
+    "pillCustody": "Self-Custody Keys",
+    "pillFees": "Zero Platform Fees",
+    "statChains": "Supported Chains",
+    "statSetup": "Avg. Setup Time",
+    "statFees": "Platform Fees",
+    "statUptime": "Uptime SLA"
+  },
+  "features": {
+    "label": "Features",
+    "title": "Everything You Need in",
+    "titleSuffix": "Xcash Payment Infrastructure",
+    "items": [
+      {
+        "title": "Invoice Payments",
+        "description": "Create invoices with auto-generated payment pages. Multi-currency pricing with crypto settlement."
+      },
+      {
+        "title": "Deposit Management",
+        "description": "Unique deposit addresses per customer via BIP44 HD wallet derivation. Configurable confirmations."
+      },
+      {
+        "title": "Withdrawals",
+        "description": "On-demand withdrawals with optional 2-tier review workflow. Daily limits and risk controls."
+      },
+      {
+        "title": "Multi-Chain",
+        "description": "All EVM networks out of the box. Native Bitcoin support. Add new chains via RPC configuration."
+      },
+      {
+        "title": "Webhook Events",
+        "description": "Async event delivery with automatic retry. Idempotent nonce-based deduplication."
+      },
+      {
+        "title": "Self-Custody",
+        "description": "Private keys never leave your infrastructure. Isolated signer service with HD wallet derivation."
+      },
+      {
+        "title": "One-Click Deploy",
+        "description": "Docker Compose deployment with Traefik reverse proxy. Automated environment initialization."
+      },
+      {
+        "title": "Auto Consolidation",
+        "description": "Automatic fund sweeping when thresholds are reached. Configurable intervals and USD triggers."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "How It Works",
+    "title": "Get Xcash Up and Running in Minutes",
+    "steps": [
+      {
+        "title": "Deploy",
+        "description": "Clone the repo and run docker compose up. Your payment gateway is live in minutes with automatic TLS."
+      },
+      {
+        "title": "Configure",
+        "description": "Set up your merchant project, configure supported chains, and generate API credentials via the admin panel."
+      },
+      {
+        "title": "Integrate",
+        "description": "Use the REST API to create invoices, manage deposits, and process withdrawals. Webhooks notify your backend in real-time."
+      }
+    ]
+  },
+  "codePreview": {
+    "label": "Integration",
+    "title": "Simple REST API.",
+    "titleSuffix": "Integrate in Minutes.",
+    "description": "Xcash provides clean RESTful endpoints with HMAC authentication. Create invoices, generate deposit addresses, and process withdrawals with just a few API calls. Real-time webhooks keep your backend in sync.",
+    "tabs": {
+      "createInvoice": "Create Invoice",
+      "getDeposit": "Get Deposit Address",
+      "webhook": "Webhook Handler"
+    }
+  },
+  "security": {
+    "label": "Security",
+    "title": "Built for Zero-Trust Architecture",
+    "description": "In Xcash, security isn't an afterthought — it's the foundation. The isolated signer architecture ensures your private keys never touch the payment processing layer, while HMAC authentication and IP whitelisting protect every API call.",
+    "badges": ["MIT Licensed", "Open Source", "Self-Custody", "No KYC Required"],
+    "items": [
+      {
+        "title": "Isolated Signer",
+        "description": "Signing service runs independently with its own database. Private keys are completely isolated from the payment logic."
+      },
+      {
+        "title": "HD Wallet Derivation",
+        "description": "BIP44-based hierarchical deterministic wallets. Unique addresses per customer without on-chain registration."
+      },
+      {
+        "title": "HMAC Authentication",
+        "description": "All API requests are authenticated with HMAC-SHA256 signatures. IP whitelisting for additional protection."
+      },
+      {
+        "title": "Self-Hosted",
+        "description": "Deploy on your own infrastructure. No third-party custody. Your keys, your coins, your rules."
+      },
+      {
+        "title": "Risk Controls",
+        "description": "Configurable withdrawal limits, 2-tier review workflows, and daily transaction caps per merchant."
+      },
+      {
+        "title": "Open Source Audit",
+        "description": "Fully open source under MIT License. Inspect every line of code. Community-reviewed security."
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Start Xcash Free, Scale as You Grow",
+    "description": "Zero platform fees on self-hosted. No hidden costs. No revenue sharing.",
+    "mostPopular": "Most Popular",
+    "plans": [
+      {
+        "name": "Open Source",
+        "price": "Free",
+        "period": "forever",
+        "description": "Self-host on your own infrastructure with full source code access.",
+        "cta": "Deploy Now",
+        "features": [
+          "Unlimited transactions",
+          "All supported chains",
+          "Invoice & deposit & withdrawal",
+          "Webhook notifications",
+          "Docker Compose deployment",
+          "Community support",
+          "MIT License"
+        ]
+      },
+      {
+        "name": "Cloud",
+        "price": "$49",
+        "period": "/month",
+        "description": "Managed hosting with zero maintenance. Focus on your business.",
+        "cta": "Start Free Trial",
+        "features": [
+          "Everything in Open Source",
+          "Managed infrastructure",
+          "Automatic updates",
+          "99.9% uptime SLA",
+          "Priority support",
+          "Custom domain & SSL",
+          "Advanced analytics"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "",
+        "description": "Dedicated infrastructure with SLA guarantees and premium support.",
+        "cta": "Contact Sales",
+        "features": [
+          "Everything in Cloud",
+          "Dedicated infrastructure",
+          "Custom SLA",
+          "On-premise deployment",
+          "Dedicated account manager",
+          "Custom integrations",
+          "Compliance assistance"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "Open source crypto payment gateway. Your keys, your coins, your rules.",
+    "product": "Product",
+    "developers": "Developers",
+    "company": "Company",
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "security": "Security",
+      "changelog": "Changelog",
+      "documentation": "Documentation",
+      "apiReference": "API Reference",
+      "github": "GitHub",
+      "selfHosting": "Self-Hosting Guide",
+      "about": "About",
+      "blog": "Blog",
+      "contact": "Contact",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "Xcash. Open source under MIT License.",
+    "slogan": "Built for the decentralized economy."
+  }
+}

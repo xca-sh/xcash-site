@@ -1,0 +1,204 @@
+{
+  "nav": {
+    "features": "功能",
+    "howItWorks": "如何使用",
+    "integration": "接入",
+    "pricing": "定价",
+    "security": "安全",
+    "docs": "文档",
+    "getStarted": "开始使用"
+  },
+  "hero": {
+    "badge": "开源 · 自托管 · MIT 协议",
+    "title": "Xcash 网关",
+    "phrases": ["自主掌控", "自托管 · 安全", "零平台费用", "多链支持", "永久开源"],
+    "description": "Xcash 是一个自托管的加密货币支付网关。接受付款、管理充值和提现，完全掌控您的私钥。",
+    "ctaStart": "免费开始",
+    "ctaGithub": "在 GitHub 上查看",
+    "pillChains": "100+ 支持链",
+    "pillCustody": "自托管密钥",
+    "pillFees": "零平台费用",
+    "statChains": "支持链",
+    "statSetup": "平均部署时间",
+    "statFees": "平台费用",
+    "statUptime": "可用性 SLA"
+  },
+  "features": {
+    "label": "功能",
+    "title": "Xcash 支付基础设施",
+    "titleSuffix": "一切所需",
+    "items": [
+      {
+        "title": "发票支付",
+        "description": "创建带有自动生成支付页面的发票。多币种定价，加密货币结算。"
+      },
+      {
+        "title": "充值管理",
+        "description": "基于 BIP44 HD 钱包派生的唯一充值地址。可配置确认数。"
+      },
+      {
+        "title": "提现",
+        "description": "按需提现，支持可选的两级审核流程。每日限额与风控措施。"
+      },
+      {
+        "title": "多链支持",
+        "description": "开箱即用支持所有 EVM 网络。原生比特币支持。通过 RPC 配置添加新链。"
+      },
+      {
+        "title": "Webhook 事件",
+        "description": "异步事件推送，自动重试。基于 Nonce 的幂等去重机制。"
+      },
+      {
+        "title": "自托管",
+        "description": "私钥永远不会离开您的基础设施。隔离签名服务与 HD 钱包派生。"
+      },
+      {
+        "title": "一键部署",
+        "description": "Docker Compose 部署，内置 Traefik 反向代理。自动化环境初始化。"
+      },
+      {
+        "title": "自动归集",
+        "description": "达到阈值时自动归集资金。可配置时间间隔和 USD 触发条件。"
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "如何使用",
+    "title": "几分钟内启动 Xcash",
+    "steps": [
+      {
+        "title": "部署",
+        "description": "克隆仓库并运行 docker compose up。您的支付网关将在几分钟内上线，自动配置 TLS。"
+      },
+      {
+        "title": "配置",
+        "description": "设置您的商户项目，配置支持的链，通过管理面板生成 API 密钥。"
+      },
+      {
+        "title": "接入",
+        "description": "使用 REST API 创建发票、管理充值和处理提现。Webhook 实时通知您的后端。"
+      }
+    ]
+  },
+  "codePreview": {
+    "label": "接入",
+    "title": "简洁的 REST API",
+    "titleSuffix": "几分钟完成接入",
+    "description": "Xcash 提供简洁的 RESTful 接口和 HMAC 认证。只需几个 API 调用即可创建发票、生成充值地址和处理提现。实时 Webhook 让您的后端保持同步。",
+    "tabs": {
+      "createInvoice": "创建发票",
+      "getDeposit": "获取充值地址",
+      "webhook": "Webhook 处理"
+    }
+  },
+  "security": {
+    "label": "安全",
+    "title": "为零信任架构而生",
+    "description": "在 Xcash 中，安全不是事后补救——它是基石。隔离签名架构确保您的私钥永远不会接触支付处理层，而 HMAC 认证和 IP 白名单保护每一个 API 调用。",
+    "badges": ["MIT 协议", "开源", "自托管", "无需 KYC"],
+    "items": [
+      {
+        "title": "隔离签名",
+        "description": "签名服务独立运行，拥有自己的数据库。私钥与支付逻辑完全隔离。"
+      },
+      {
+        "title": "HD 钱包派生",
+        "description": "基于 BIP44 的分层确定性钱包。无需链上注册即可为每个客户生成唯一地址。"
+      },
+      {
+        "title": "HMAC 认证",
+        "description": "所有 API 请求均使用 HMAC-SHA256 签名认证。IP 白名单提供额外保护。"
+      },
+      {
+        "title": "自托管部署",
+        "description": "部署在您自己的基础设施上。无第三方托管。您的密钥，您的资产，您的规则。"
+      },
+      {
+        "title": "风险控制",
+        "description": "可配置的提现限额、两级审核流程和每个商户的每日交易上限。"
+      },
+      {
+        "title": "开源审计",
+        "description": "MIT 协议完全开源。审查每一行代码。社区审核安全性。"
+      }
+    ]
+  },
+  "pricing": {
+    "label": "定价",
+    "title": "免费开始，随需扩展",
+    "description": "自托管零平台费用。无隐藏成本。无收入分成。",
+    "mostPopular": "最受欢迎",
+    "plans": [
+      {
+        "name": "开源版",
+        "price": "免费",
+        "period": "永久",
+        "description": "在您自己的基础设施上自托管，完全访问源代码。",
+        "cta": "立即部署",
+        "features": [
+          "无限交易",
+          "支持所有链",
+          "发票 & 充值 & 提现",
+          "Webhook 通知",
+          "Docker Compose 部署",
+          "社区支持",
+          "MIT 协议"
+        ]
+      },
+      {
+        "name": "云托管版",
+        "price": "$49",
+        "period": "/月",
+        "description": "托管主机，零维护。专注您的业务。",
+        "cta": "开始免费试用",
+        "features": [
+          "包含开源版全部功能",
+          "托管基础设施",
+          "自动更新",
+          "99.9% 可用性 SLA",
+          "优先支持",
+          "自定义域名 & SSL",
+          "高级分析"
+        ]
+      },
+      {
+        "name": "企业版",
+        "price": "定制",
+        "period": "",
+        "description": "专属基础设施，SLA 保障和高级支持。",
+        "cta": "联系销售",
+        "features": [
+          "包含云托管版全部功能",
+          "专属基础设施",
+          "自定义 SLA",
+          "本地化部署",
+          "专属客户经理",
+          "自定义集成",
+          "合规协助"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "description": "开源加密货币支付网关。您的密钥，您的资产，您的规则。",
+    "product": "产品",
+    "developers": "开发者",
+    "company": "公司",
+    "links": {
+      "features": "功能",
+      "pricing": "定价",
+      "security": "安全",
+      "changelog": "更新日志",
+      "documentation": "文档",
+      "apiReference": "API 参考",
+      "github": "GitHub",
+      "selfHosting": "自托管指南",
+      "about": "关于",
+      "blog": "博客",
+      "contact": "联系我们",
+      "privacy": "隐私政策"
+    },
+    "copyright": "Xcash. MIT 协议开源。",
+    "slogan": "为去中心化经济而建。"
+  }
+}
