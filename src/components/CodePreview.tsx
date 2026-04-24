@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Copy, Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
@@ -94,26 +94,6 @@ def handle_webhook():
   },
 ]
 
-function useTypewriter(text: string, active: boolean) {
-  const [displayed, setDisplayed] = useState('')
-  const [done, setDone] = useState(false)
-
-  useEffect(() => {
-    if (!active) { setDisplayed(text); setDone(true); return }
-    setDisplayed('')
-    setDone(false)
-    let i = 0
-    const interval = setInterval(() => {
-      i++
-      setDisplayed(text.slice(0, i))
-      if (i >= text.length) { clearInterval(interval); setDone(true) }
-    }, 8)
-    return () => clearInterval(interval)
-  }, [text, active])
-
-  return { displayed, done }
-}
-
 function SyntaxLine({ line }: { line: string }) {
   const parts: React.ReactElement[] = []
   let key = 0
@@ -150,9 +130,7 @@ export default function CodePreview() {
   const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(0)
   const [copied, setCopied] = useState(false)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const { displayed, done } = useTypewriter(codeExamples[activeIndex].code, isInView)
+  const code = codeExamples[activeIndex].code
 
   const handleCopy = () => {
     navigator.clipboard.writeText(codeExamples[activeIndex].code)
@@ -218,7 +196,6 @@ export default function CodePreview() {
           </div>
 
           <motion.div
-            ref={ref}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -253,7 +230,7 @@ export default function CodePreview() {
 
               <div className="p-5 font-mono text-[13px] leading-6 overflow-x-auto max-h-[480px] overflow-y-auto">
                 <pre className="whitespace-pre">
-                  {displayed.split('\n').map((line, i) => (
+                  {code.split('\n').map((line, i) => (
                     <div key={i} className="flex">
                       <span className="w-8 shrink-0 text-right pr-4 text-gray-600 select-none text-xs">
                         {i + 1}
@@ -263,9 +240,6 @@ export default function CodePreview() {
                       </span>
                     </div>
                   ))}
-                  {!done && (
-                    <span className="inline-block w-[7px] h-[18px] bg-blue-400 animate-pulse ml-0.5" />
-                  )}
                 </pre>
               </div>
             </div>
