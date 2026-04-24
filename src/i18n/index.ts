@@ -3,16 +3,19 @@ import { initReactI18next } from 'react-i18next'
 import zh from './zh.json'
 import en from './en.json'
 
-const savedLang = localStorage.getItem('lang')
+const isServer = typeof window === 'undefined'
+const savedLang = isServer ? null : localStorage.getItem('lang')
 
-i18n.use(initReactI18next).init({
-  resources: {
-    zh: { translation: zh },
-    en: { translation: en },
-  },
-  lng: savedLang || 'zh',
-  fallbackLng: 'zh',
-  interpolation: { escapeValue: false },
-})
+if (!i18n.isInitialized) {
+  i18n.use(initReactI18next).init({
+    resources: {
+      zh: { translation: zh },
+      en: { translation: en },
+    },
+    lng: savedLang || 'zh',
+    fallbackLng: 'zh',
+    interpolation: { escapeValue: false },
+  })
+}
 
 export default i18n

@@ -8,87 +8,89 @@ const codeExamples = [
     tabKey: 'createInvoice',
     lang: 'python',
     code: `import requests
-import hmac, hashlib, json
+import hmac, hashlib, json, time, uuid
 
-API_BASE = "https://pay.example.com/api/v1"
-APP_ID = "your-app-id"
-SECRET = "your-secret-key"
+API_BASE = "https://gateway.xca.sh"
+APPID = "XC-A3BK7NMG"
+HMAC_KEY = "your_32_char_hmac_key_here"
 
-def create_invoice(amount, currency="USD"):
-    payload = {
-        "amount": amount,
-        "currency": currency,
-        "notify_url": "https://your-site.com/webhook",
-        "redirect_url": "https://your-site.com/success"
-    }
-    body = json.dumps(payload, separators=(',', ':'))
+def create_invoice():
+    body = json.dumps({
+        "out_no": "order-20240101-001",
+        "title": "Premium Plan",
+        "currency": "USD",
+        "amount": "29.99"
+    }, separators=(',', ':'))
+
+    timestamp = str(int(time.time()))
+    nonce = str(uuid.uuid4())
+    message = nonce + timestamp + body
     signature = hmac.new(
-        SECRET.encode(), body.encode(), hashlib.sha256
+        HMAC_KEY.encode(), message.encode(), hashlib.sha256
     ).hexdigest()
 
     resp = requests.post(
-        f"{API_BASE}/invoice/",
-        json=payload,
+        f"{API_BASE}/v1/invoice",
+        data=body,
         headers={
-            "X-App-ID": APP_ID,
-            "X-Signature": signature
+            "XC-Appid": APPID,
+            "XC-Timestamp": timestamp,
+            "XC-Nonce": nonce,
+            "XC-Signature": signature,
+            "Content-Type": "application/json"
         }
     )
     return resp.json()
 
-# Create a $99 invoice
-invoice = create_invoice("99.00")
-print(f"Payment URL: {invoice['payment_url']}")`,
+invoice = create_invoice()
+print(f"Payment URL: {invoice['pay_url']}")`,
   },
   {
     tabKey: 'getDeposit',
     lang: 'bash',
-    code: `# Get a unique deposit address for a customer
-curl -X GET "https://pay.example.com/api/v1/deposit/address/" \\
-  -H "X-App-ID: your-app-id" \\
-  -H "X-Signature: \${SIGNATURE}" \\
-  -G \\
-  -d "uid=customer_123" \\
-  -d "chain=ETH" \\
-  -d "crypto=USDT"
+    code: `# Get a unique deposit address for a user
+curl -X GET "https://gateway.xca.sh/v1/deposit/address?uid=user123&chain=ethereum-mainnet&crypto=USDT" \\
+  -H "XC-Appid: XC-A3BK7NMG" \\
+  -H "XC-Timestamp: \${TIMESTAMP}" \\
+  -H "XC-Nonce: \${NONCE}" \\
+  -H "XC-Signature: \${SIGNATURE}"
 
 # Response:
 # {
-#   "address": "0x742d35Cc6634C0532925a3b844Bc...",
-#   "chain": "ETH",
-#   "crypto": "USDT",
-#   "uid": "customer_123"
+#   "deposit_address": "0xAbCd...1234"
 # }`,
   },
   {
     tabKey: 'webhook',
     lang: 'python',
-    code: `from flask import Flask, request, jsonify
+    code: `from flask import Flask, request
 import hmac, hashlib
 
 app = Flask(__name__)
-SECRET = "your-webhook-secret"
+HMAC_KEY = "your_32_char_hmac_key_here"
 
 @app.route("/webhook", methods=["POST"])
 def handle_webhook():
-    # Verify signature
-    signature = request.headers.get("X-Signature")
+    nonce = request.headers.get("XC-Nonce")
+    timestamp = request.headers.get("XC-Timestamp")
+    signature = request.headers.get("XC-Signature")
     body = request.get_data(as_text=True)
+
+    message = nonce + timestamp + body
     expected = hmac.new(
-        SECRET.encode(), body.encode(), hashlib.sha256
+        HMAC_KEY.encode(), message.encode(), hashlib.sha256
     ).hexdigest()
 
     if not hmac.compare_digest(signature, expected):
-        return jsonify({"error": "Invalid signature"}), 403
+        return "invalid", 403
 
-    event = request.json
-    if event["status"] == "completed":
-        # Payment confirmed on-chain
-        order_id = event["merchant_order_id"]
-        amount = event["amount"]
-        print(f"Payment {order_id}: {amount} confirmed!")
+    event = request.get_json()
+    if event["type"] == "invoice" and event["data"]["confirmed"]:
+        out_no = event["data"]["out_no"]
+        amount = event["data"]["pay_amount"]
+        print(f"Invoice {out_no}: {amount} confirmed!")
 
-    return jsonify({"status": "ok"})`,
+    return "ok"`,
   },
 ]
 

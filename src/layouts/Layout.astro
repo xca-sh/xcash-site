@@ -1,0 +1,98 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Xcash - 开源自托管加密货币支付网关',
+  description = 'Xcash 是全球首款开源自托管的加密货币金融网关。支持支付、充币、提币，零平台费用，完全掌控您的资产和私钥。支持 100+ 链，3 分钟部署。',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="加密货币支付网关,crypto payment gateway,自托管,self-hosted,开源,open source,比特币支付,以太坊支付,USDT,区块链支付,cryptocurrency,payment gateway" />
+    <meta name="author" content="Xcash" />
+    <link rel="canonical" href="https://xca.sh/" />
+
+    <!-- Multilingual -->
+    <link rel="alternate" hreflang="zh" href="https://xca.sh/" />
+    <link rel="alternate" hreflang="en" href="https://xca.sh/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://xca.sh/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://xca.sh/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://xca.sh/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Xcash" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://xca.sh/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563EB" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Xcash",
+      "applicationCategory": "FinanceApplication",
+      "description": "开源自托管加密货币金融网关。支持支付、充币、提币，零平台费用，完全掌控您的资产和私钥。",
+      "url": "https://xca.sh",
+      "operatingSystem": "Linux, Docker",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "offers": [
+        { "@type": "Offer", "name": "开源版", "price": "0", "priceCurrency": "USD", "description": "自托管，完全访问源代码，无限交易" },
+        { "@type": "Offer", "name": "云托管版", "price": "49", "priceCurrency": "USD", "description": "托管主机，零维护，99.9% 可用性 SLA" }
+      ],
+      "featureList": ["支持 100+ 区块链", "自托管私钥", "零平台费用", "发票支付", "充值管理", "提现", "Webhook 事件通知", "Docker 一键部署", "HMAC-SHA256 API 认证", "HD 钱包 (BIP44)"],
+      "codeRepository": "https://github.com/xca-sh/xcash",
+      "programmingLanguage": "TypeScript"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash"]
+    })} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 5173
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["/Users/void/Projects/xcash-site/.claude/start-dev.sh"],
+      "port": 4321
     }
   ]
 }

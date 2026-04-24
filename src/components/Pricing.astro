@@ -1,0 +1,102 @@
+---
+import zh from '../i18n/zh.json'
+
+const plans = zh.pricing.plans
+const planHrefs = [
+  'https://dash.xca.sh',
+  'https://dash.xca.sh',
+  'https://dash.xca.sh',
+  'https://dash.xca.sh',
+]
+---
+
+<section id="pricing" class="relative py-24 md:py-32 bg-surface-alt">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p data-i18n="pricing.label" class="text-primary text-sm font-medium tracking-wide uppercase mb-3 animate-on-scroll">
+        {zh.pricing.label}
+      </p>
+      <h2 data-i18n="pricing.title" class="text-3xl md:text-4xl font-bold text-text-primary tracking-tight mb-4 animate-on-scroll">
+        {zh.pricing.title}
+      </h2>
+      <p data-i18n="pricing.description" class="text-text-secondary max-w-xl mx-auto animate-on-scroll">
+        {zh.pricing.description}
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {plans.map((plan, i) => {
+        const featured = i === 1
+        return (
+          <div
+            class:list={[
+              'animate-on-scroll relative rounded-2xl p-8 flex flex-col',
+              featured
+                ? 'border-2 border-primary bg-white shadow-xl shadow-primary/10'
+                : 'border border-border bg-white',
+            ]}
+            style={`--delay: ${i * 100}ms`}
+          >
+            {featured && (
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-white text-xs font-medium" data-i18n="pricing.mostPopular">
+                {zh.pricing.mostPopular}
+              </div>
+            )}
+            <div class="mb-6">
+              <h3 class="text-lg font-semibold text-text-primary mb-2" data-i18n={`pricing.plans.${i}.name`}>{plan.name}</h3>
+              <div class="flex items-baseline gap-1 mb-2">
+                <span class="text-4xl font-bold text-text-primary" data-i18n={`pricing.plans.${i}.price`}>{plan.price}</span>
+                {plan.period && (
+                  <span class="text-text-muted text-sm" data-i18n={`pricing.plans.${i}.period`}>{plan.period}</span>
+                )}
+              </div>
+              {plan.billing && (
+                <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3" data-i18n={`pricing.plans.${i}.billing`}>
+                  {plan.billing}
+                </div>
+              )}
+              <p class="text-text-secondary text-sm" data-i18n={`pricing.plans.${i}.description`}>{plan.description}</p>
+            </div>
+            <ul class="flex flex-col gap-3 mb-8 flex-1">
+              {plan.features.map((feature, fi) => (
+                <li class="flex items-start gap-2.5 text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0 mt-0.5">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  <span class="text-text-secondary" data-i18n={`pricing.plans.${i}.features.${fi}`}>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={planHrefs[i]}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={[
+                'group flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer',
+                featured
+                  ? 'bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20'
+                  : 'border border-border hover:border-gray-300 text-text-primary hover:bg-surface-alt',
+              ]}
+            >
+              <span data-i18n={`pricing.plans.${i}.cta`}>{plan.cta}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 transition-transform duration-200">
+                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        )
+      })}
+    </div>
+
+    <div class="mt-10 flex justify-center animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-border text-text-secondary text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4" />
+          <path d="M12 8h.01" />
+        </svg>
+        <span data-i18n="pricing.overageNote">{zh.pricing.overageNote}</span>
+      </div>
+    </div>
+  </div>
+</section>

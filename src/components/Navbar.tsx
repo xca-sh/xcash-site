@@ -25,9 +25,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-            <span className="text-white font-bold text-sm">X</span>
-          </div>
+          <img src="/logo.svg" alt="Xcash" className="w-8 h-8" />
           <span className="text-text-primary font-semibold text-lg tracking-tight">Xcash</span>
         </a>
 
@@ -101,6 +99,7 @@ export default function Navbar() {
               ))}
               <button
                 onClick={toggleLang}
+                aria-label="Switch language"
                 className="flex items-center gap-1.5 text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 cursor-pointer"
               >
                 <Globe size={15} />

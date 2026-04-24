@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.tsx'
+import Hero from '../components/Hero.tsx'
+import Features from '../components/Features.astro'
+import HowItWorks from '../components/HowItWorks.astro'
+import CodePreview from '../components/CodePreview.tsx'
+import Pricing from '../components/Pricing.astro'
+import Security from '../components/Security.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout>
+  <div class="min-h-screen bg-surface">
+    <Navbar client:load />
+    <Hero client:load />
+    <Features />
+    <HowItWorks />
+    <CodePreview client:visible />
+    <Pricing />
+    <Security />
+    <Footer />
+  </div>
+
+  <!-- Scroll animation observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '-50px' }
+    )
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el))
+  </script>
+
+  <!-- i18n for static Astro sections -->
+  <script>
+    import i18n from '../i18n/index.ts'
+    import zh from '../i18n/zh.json'
+    import en from '../i18n/en.json'
+
+    const translations: Record<string, typeof zh> = { zh, en }
+
+    function getNestedValue(obj: Record<string, unknown>, path: string): string {
+      const result = path.split('.').reduce<unknown>((acc, key) => {
+        if (acc && typeof acc === 'object') return (acc as Record<string, unknown>)[key]
+        return undefined
+      }, obj)
+      return typeof result === 'string' ? result : ''
+    }
+
+    function updateStaticTexts(lng: string) {
+      const t = translations[lng] || translations['zh']
+      document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n')!
+        const value = getNestedValue(t as unknown as Record<string, unknown>, key)
+        if (value) el.textContent = value
+      })
+    }
+
+    i18n.on('languageChanged', updateStaticTexts)
+  </script>
+</Layout>
+
+<style is:global>
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
+  }
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
