@@ -125,79 +125,10 @@
   },
   "pricing": {
     "label": "Pricing",
-    "title": "Pay Once, Upgrade Forever",
-    "description": "No monthly subscription, no hidden costs, no revenue sharing. Zero platform fees on self-hosted.",
+    "title": "Monthly plans, transparent usage",
+    "description": "Plan prices, monthly free quotas, and fee rates are synced from the live dashboard API.",
     "mostPopular": "Most Popular",
-    "overageNote": "Usage beyond the monthly free quota is charged a flat 1% fee",
-    "plans": [
-      {
-        "name": "Free",
-        "price": "$0.00",
-        "period": "",
-        "billing": "Free forever",
-        "description": "$0.00 monthly free quota",
-        "cta": "Deploy Now",
-        "features": [
-          "Unlimited transactions",
-          "All supported chains",
-          "Webhook notifications",
-          "Docker Compose deployment",
-          "Community support",
-          "MIT License"
-        ]
-      },
-      {
-        "name": "Plus",
-        "price": "$9.00",
-        "period": "",
-        "billing": "One-time · Lifetime access",
-        "description": "$1,000.00 monthly free quota",
-        "cta": "Upgrade",
-        "features": [
-          "Everything in Free",
-          "$1,000.00 monthly free quota",
-          "Managed infrastructure",
-          "Automatic updates",
-          "Email support",
-          "Basic analytics",
-          "Custom domain & SSL"
-        ]
-      },
-      {
-        "name": "Pro",
-        "price": "$99.00",
-        "period": "",
-        "billing": "One-time · Lifetime access",
-        "description": "$10,000.00 monthly free quota",
-        "cta": "Upgrade",
-        "features": [
-          "Everything in Plus",
-          "$10,000.00 monthly free quota",
-          "Deposits & Withdrawals",
-          "99.9% uptime SLA",
-          "Priority support",
-          "Advanced analytics",
-          "Team collaboration"
-        ]
-      },
-      {
-        "name": "Max",
-        "price": "$999.00",
-        "period": "",
-        "billing": "One-time · Lifetime access",
-        "description": "$200,000.00 monthly free quota",
-        "cta": "Upgrade",
-        "features": [
-          "Everything in Pro",
-          "$200,000.00 monthly free quota",
-          "Deposits & Withdrawals",
-          "Dedicated infrastructure",
-          "Custom SLA",
-          "Dedicated account manager",
-          "Custom integrations & compliance"
-        ]
-      }
-    ]
+    "overageNote": "Usage beyond the monthly free quota is charged at the current plan fee rate"
   },
   "footer": {
     "description": "Open source crypto payment gateway. Your keys, your coins, your rules.",

@@ -1,13 +1,5 @@
 ---
 import zh from '../i18n/zh.json'
-
-const plans = zh.pricing.plans
-const planHrefs = [
-  'https://dash.xca.sh',
-  'https://dash.xca.sh',
-  'https://dash.xca.sh',
-  'https://dash.xca.sh',
-]
 ---
 
 <section id="pricing" class="relative py-24 md:py-32 bg-surface-alt">
@@ -24,69 +16,7 @@ const planHrefs = [
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-      {plans.map((plan, i) => {
-        const featured = i === 1
-        return (
-          <div
-            class:list={[
-              'animate-on-scroll relative rounded-2xl p-8 flex flex-col',
-              featured
-                ? 'border-2 border-primary bg-white shadow-xl shadow-primary/10'
-                : 'border border-border bg-white',
-            ]}
-            style={`--delay: ${i * 100}ms`}
-          >
-            {featured && (
-              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-white text-xs font-medium" data-i18n="pricing.mostPopular">
-                {zh.pricing.mostPopular}
-              </div>
-            )}
-            <div class="mb-6">
-              <h3 class="text-lg font-semibold text-text-primary mb-2" data-i18n={`pricing.plans.${i}.name`}>{plan.name}</h3>
-              <div class="flex items-baseline gap-1 mb-2">
-                <span class="text-4xl font-bold text-text-primary" data-i18n={`pricing.plans.${i}.price`}>{plan.price}</span>
-                {plan.period && (
-                  <span class="text-text-muted text-sm" data-i18n={`pricing.plans.${i}.period`}>{plan.period}</span>
-                )}
-              </div>
-              {plan.billing && (
-                <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3" data-i18n={`pricing.plans.${i}.billing`}>
-                  {plan.billing}
-                </div>
-              )}
-              <p class="text-text-secondary text-sm" data-i18n={`pricing.plans.${i}.description`}>{plan.description}</p>
-            </div>
-            <ul class="flex flex-col gap-3 mb-8 flex-1">
-              {plan.features.map((feature, fi) => (
-                <li class="flex items-start gap-2.5 text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0 mt-0.5">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  <span class="text-text-secondary" data-i18n={`pricing.plans.${i}.features.${fi}`}>{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href={planHrefs[i]}
-              target="_blank"
-              rel="noopener noreferrer"
-              class:list={[
-                'group flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer',
-                featured
-                  ? 'bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20'
-                  : 'border border-border hover:border-gray-300 text-text-primary hover:bg-surface-alt',
-              ]}
-            >
-              <span data-i18n={`pricing.plans.${i}.cta`}>{plan.cta}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-0.5 transition-transform duration-200">
-                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        )
-      })}
-    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto" data-pricing-cards></div>
 
     <div class="mt-10 flex justify-center animate-on-scroll">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-border text-text-secondary text-sm">
@@ -100,3 +30,233 @@ const planHrefs = [
     </div>
   </div>
 </section>
+
+<script>
+  import i18n from '../i18n/index.ts'
+  import {
+    PUBLIC_TIERS_URL,
+    buildPricingPlan,
+    isTierList,
+    sortTiers,
+    type PricingLanguage,
+    type PricingCoreFeature,
+    type PricingPlan,
+    type PricingSupportGroup,
+    type PublicTier,
+  } from '../lib/pricing.ts'
+
+  const cardsRoot = document.querySelector<HTMLElement>('[data-pricing-cards]')
+  let activeTiers: PublicTier[] = []
+
+  function getLanguage(): PricingLanguage {
+    return i18n.language === 'en' ? 'en' : 'zh'
+  }
+
+  function appendTextElement(parent: HTMLElement, tagName: string, className: string, text: string) {
+    const element = document.createElement(tagName)
+    element.className = className
+    element.textContent = text
+    parent.append(element)
+    return element
+  }
+
+  function createStatusIcon(included: boolean) {
+    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    icon.setAttribute('width', '20')
+    icon.setAttribute('height', '20')
+    icon.setAttribute('viewBox', '0 0 24 24')
+    icon.setAttribute('fill', 'none')
+    icon.setAttribute('stroke', 'currentColor')
+    icon.setAttribute('stroke-width', '2')
+    icon.setAttribute('stroke-linecap', 'round')
+    icon.setAttribute('stroke-linejoin', 'round')
+    icon.setAttribute('class', `${included ? 'text-emerald-600' : 'text-text-secondary'} shrink-0 mt-0.5`)
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    path.setAttribute('d', included ? 'M20 6 9 17l-5-5' : 'M18 6 6 18M6 6l12 12')
+    icon.append(path)
+    return icon
+  }
+
+  function createArrowIcon() {
+    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    icon.setAttribute('width', '16')
+    icon.setAttribute('height', '16')
+    icon.setAttribute('viewBox', '0 0 24 24')
+    icon.setAttribute('fill', 'none')
+    icon.setAttribute('stroke', 'currentColor')
+    icon.setAttribute('stroke-width', '2')
+    icon.setAttribute('stroke-linecap', 'round')
+    icon.setAttribute('stroke-linejoin', 'round')
+    icon.setAttribute('class', 'group-hover:translate-x-0.5 transition-transform duration-200')
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    line.setAttribute('d', 'M5 12h14')
+    const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    arrow.setAttribute('d', 'm12 5 7 7-7 7')
+    icon.append(line, arrow)
+    return icon
+  }
+
+  function createUsageHighlights(plan: PricingPlan) {
+    const list = document.createElement('div')
+    list.className = 'flex flex-col gap-1.5 mb-6'
+
+    plan.usageHighlights.forEach((highlight) => {
+      appendTextElement(
+        list,
+        'p',
+        'text-text-secondary text-sm leading-relaxed',
+        highlight,
+      )
+    })
+
+    return list
+  }
+
+  function createCoreFeature(feature: PricingCoreFeature) {
+    const item = document.createElement('li')
+    item.className = 'flex items-start gap-3'
+    item.append(createStatusIcon(feature.included))
+
+    const content = document.createElement('div')
+    content.className = 'min-w-0'
+    appendTextElement(content, 'div', 'text-text-primary text-sm font-semibold leading-tight', feature.title)
+    appendTextElement(content, 'p', 'text-text-muted text-xs leading-relaxed mt-1', feature.description)
+    item.append(content)
+
+    return item
+  }
+
+  function createSupportGroup(group: PricingSupportGroup) {
+    const wrapper = document.createElement('div')
+    wrapper.className = 'rounded-xl border border-border bg-surface px-4 py-3'
+
+    appendTextElement(wrapper, 'div', 'text-text-primary text-sm font-semibold mb-1.5', group.title)
+    appendTextElement(
+      wrapper,
+      'p',
+      group.allSupported ? 'text-primary text-sm font-medium' : 'text-text-muted text-xs mb-2',
+      group.summary,
+    )
+
+    if (group.items.length > 0) {
+      const items = document.createElement('div')
+      items.className = 'flex flex-wrap gap-2'
+      group.items.forEach((item) => {
+        appendTextElement(
+          items,
+          'span',
+          'inline-flex rounded-md border border-border bg-white px-2 py-1 text-xs font-medium text-text-secondary',
+          item,
+        )
+      })
+      wrapper.append(items)
+    }
+
+    return wrapper
+  }
+
+  function createCard(plan: PricingPlan, index: number) {
+    const featured = index === 1
+    const card = document.createElement('div')
+    card.className = [
+      'animate-on-scroll is-visible relative rounded-2xl p-8 flex flex-col',
+      featured
+        ? 'border-2 border-primary bg-white shadow-xl shadow-primary/10'
+        : 'border border-border bg-white',
+    ].join(' ')
+    card.style.setProperty('--delay', `${index * 100}ms`)
+
+    if (featured) {
+      const badge = appendTextElement(
+        card,
+        'div',
+        'absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-white text-xs font-medium',
+        i18n.t('pricing.mostPopular'),
+      )
+      badge.setAttribute('data-i18n', 'pricing.mostPopular')
+    }
+
+    const header = document.createElement('div')
+    header.className = 'mb-6'
+    appendTextElement(header, 'h3', 'text-lg font-semibold text-text-primary mb-2', plan.name)
+
+    const priceRow = document.createElement('div')
+    priceRow.className = 'flex items-baseline gap-1 mb-2'
+    appendTextElement(priceRow, 'span', 'text-4xl font-bold text-text-primary', plan.price)
+    if (plan.period) appendTextElement(priceRow, 'span', 'text-text-muted text-sm', plan.period)
+    header.append(priceRow)
+
+    if (plan.billing) {
+      appendTextElement(
+        header,
+        'div',
+        'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3',
+        plan.billing,
+      )
+    }
+    card.append(header)
+
+    card.append(createUsageHighlights(plan))
+
+    const body = document.createElement('div')
+    body.className = 'flex flex-col gap-6 mb-8 flex-1'
+
+    const coreFeatures = document.createElement('ul')
+    coreFeatures.className = 'flex flex-col gap-5'
+    plan.coreFeatures.forEach((feature) => coreFeatures.append(createCoreFeature(feature)))
+    body.append(coreFeatures)
+
+    const supportGroups = document.createElement('div')
+    supportGroups.className = 'grid gap-3'
+    plan.supportGroups.forEach((group) => supportGroups.append(createSupportGroup(group)))
+    body.append(supportGroups)
+
+    card.append(body)
+
+    const cta = document.createElement('a')
+    cta.href = 'https://dash.xca.sh'
+    cta.target = '_blank'
+    cta.rel = 'noopener noreferrer'
+    cta.className = [
+      'group flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer',
+      featured
+        ? 'bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20'
+        : 'border border-border hover:border-gray-300 text-text-primary hover:bg-surface-alt',
+    ].join(' ')
+    appendTextElement(cta, 'span', '', plan.cta)
+    cta.append(createArrowIcon())
+    card.append(cta)
+
+    return card
+  }
+
+  function renderPricingCards(tiers: PublicTier[]) {
+    if (!cardsRoot) return
+
+    const language = getLanguage()
+    const fragment = document.createDocumentFragment()
+    sortTiers(tiers)
+      .map((tier) => buildPricingPlan(tier, language))
+      .forEach((plan, index) => fragment.append(createCard(plan, index)))
+
+    cardsRoot.replaceChildren(fragment)
+  }
+
+  i18n.on('languageChanged', () => renderPricingCards(activeTiers))
+
+  fetch(PUBLIC_TIERS_URL)
+    .then((response) => {
+      if (!response.ok) throw new Error(`Failed to load pricing tiers: ${response.status}`)
+      return response.json()
+    })
+    .then((payload: unknown) => {
+      if (!isTierList(payload)) throw new Error('Invalid pricing tiers payload')
+      activeTiers = payload
+      renderPricingCards(activeTiers)
+    })
+    .catch((error) => {
+      console.warn(error)
+    })
+</script>
