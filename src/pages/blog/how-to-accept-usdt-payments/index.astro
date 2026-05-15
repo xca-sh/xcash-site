@@ -41,159 +41,158 @@ print(f"Payment URL: {invoice['pay_url']}")`
 ---
 
 <Layout
-  title="How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway | Xcash"
-  description="Learn how to accept USDT payments on your website using a self-hosted crypto payment gateway. Full tutorial with Docker deployment, API integration, and zero platform fees."
+  title="如何用自托管加密货币支付网关接受 USDT 收款 | Xcash"
+  description="手把手教你部署自己的加密货币支付网关，接受 USDT（ERC-20、TRC-20、BEP-20）及 100+ 种加密货币收款，零平台费用，完全掌控私钥。附完整代码示例。"
   canonical="https://xca.sh/blog/how-to-accept-usdt-payments/"
 >
   <div class="min-h-screen bg-surface">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2.5 group">
-          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; Home</span>
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; 首页</span>
         </a>
-        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">博客</a>
+        <a href="/en/blog/how-to-accept-usdt-payments/" class="text-sm text-text-secondary hover:text-primary transition-colors">English</a>
       </div>
     </nav>
 
     <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
       <article class="prose prose-slate max-w-none">
         <header class="mb-10 not-prose">
-          <time class="text-xs text-text-muted">May 15, 2026</time>
+          <time class="text-xs text-text-muted">2026 年 5 月 15 日</time>
           <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
-            How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway
+            如何用自托管加密货币支付网关接受 USDT 收款
           </h1>
           <div class="flex gap-2 mb-6">
             <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">USDT</span>
-            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Tutorial</span>
-            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Self-Hosted</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">教程</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">自托管</span>
           </div>
           <p class="text-lg text-text-secondary leading-relaxed">
-            A complete guide to setting up your own self-hosted cryptocurrency payment gateway &mdash; accept USDT (ERC-20, TRC-20, BEP-20) and 100+ other tokens with full control over your funds.
+            完整教程：部署你自己的加密货币支付网关，接受 USDT（ERC-20、TRC-20、BEP-20）及 100+ 种代币收款，完全掌控资金和私钥。
           </p>
         </header>
 
         <div class="text-text-primary leading-relaxed space-y-5">
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Why Accept USDT Payments?</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">为什么要接受 USDT 收款？</h2>
           <p>
-            USDT (Tether) is the most widely used stablecoin in the world, with a market cap exceeding $140 billion. For businesses, accepting USDT offers several advantages over traditional payment methods:
+            USDT（泰达币）是全球最广泛使用的稳定币，市值已超过 1400 亿美元。对商家来说，接受 USDT 相比传统支付方式有显著优势：
           </p>
           <ul class="list-disc pl-6 space-y-2">
-            <li><strong>No chargebacks</strong> &mdash; crypto payments are irreversible once confirmed on-chain</li>
-            <li><strong>Global reach</strong> &mdash; anyone with a crypto wallet can pay you, anywhere in the world</li>
-            <li><strong>Low fees</strong> &mdash; pay only blockchain gas fees, no 2-3% processing fees like credit cards</li>
-            <li><strong>Instant settlement</strong> &mdash; funds arrive in your wallet within minutes, no bank delays</li>
-            <li><strong>Multi-chain</strong> &mdash; accept USDT on Ethereum (ERC-20), Tron (TRC-20), BNB Chain (BEP-20), and more</li>
+            <li><strong>无拒付</strong> &mdash; 链上确认后交易不可逆转</li>
+            <li><strong>全球覆盖</strong> &mdash; 任何有加密钱包的人都可以付款</li>
+            <li><strong>低费率</strong> &mdash; 只需支付区块链 Gas 费，没有 2-3% 的信用卡手续费</li>
+            <li><strong>即时到账</strong> &mdash; 几分钟内到账，无需等待银行结算</li>
+            <li><strong>多链支持</strong> &mdash; 接受以太坊（ERC-20）、波场（TRC-20）、BNB Chain（BEP-20）等多种网络的 USDT</li>
           </ul>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">The Problem with Hosted Payment Gateways</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">托管支付网关的问题</h2>
           <p>
-            Most crypto payment processors like CoinGate, OpenNode, or NowPayments are hosted solutions &mdash; they hold your funds, charge platform fees (typically 0.5-1%), and you&apos;re trusting a third party with your private keys. If their service goes down or gets hacked, your business is affected.
+            大多数加密货币支付处理器（如 CoinGate、OpenNode）是托管方案&mdash;&mdash;它们托管你的资金、收取平台费（通常 0.5-1%），你需要信任第三方保管私钥。如果它们宕机或被黑客攻击，你的业务将受到影响。
           </p>
           <p>
-            A <strong>self-hosted crypto payment gateway</strong> solves this by running on your own infrastructure. Your private keys never leave your server, every payment goes directly to your wallet, and there are zero platform fees.
-          </p>
-
-          <h2 class="text-xl font-semibold mt-8 mb-3">Option 1: Deploy Xcash (3 Minutes)</h2>
-          <p>
-            <a href="https://xca.sh" class="text-primary hover:underline">Xcash</a> is an open-source, self-hosted cryptocurrency payment gateway that supports 100+ blockchains, including all major USDT networks.
+            <strong>自托管加密货币支付网关</strong>完全解决了这个问题：运行在你自己的服务器上，私钥永远不离开你的基础设施，每笔付款直达你的钱包，零平台费用。
           </p>
 
-          <h3 class="text-lg font-semibold mt-6 mb-2">Prerequisites</h3>
+          <h2 class="text-xl font-semibold mt-8 mb-3">方案一：部署 Xcash（3 分钟）</h2>
+          <p>
+            <a href="https://xca.sh" class="text-primary hover:underline">Xcash</a> 是开源自托管加密货币支付网关，支持 100+ 区块链，涵盖所有主流 USDT 网络。
+          </p>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">前提条件</h3>
           <ul class="list-disc pl-6 space-y-1">
-            <li>A Linux server (1 vCPU, 2GB RAM minimum)</li>
-            <li>Docker and Docker Compose installed</li>
-            <li>A domain name pointed to your server</li>
-            <li>RPC endpoints for your chosen blockchain(s)</li>
+            <li>Linux 服务器（最低 1 核、2GB 内存）</li>
+            <li>已安装 Docker 和 Docker Compose</li>
+            <li>已解析到服务器的域名</li>
+            <li>所选区块链的 RPC 节点地址</li>
           </ul>
 
-          <h3 class="text-lg font-semibold mt-6 mb-2">Step 1: Clone and Initialize</h3>
+          <h3 class="text-lg font-semibold mt-6 mb-2">第一步：克隆并初始化</h3>
           <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
 cd xcash
 ./scripts/init_env.sh</code></pre>
-          <p>This generates all necessary secrets: Django secret key, database passwords, signer keys, and HMAC keys.</p>
+          <p>该命令会自动生成所有必要的密钥：Django Secret Key、数据库密码、签名密钥和 HMAC 密钥。</p>
 
-          <h3 class="text-lg font-semibold mt-6 mb-2">Step 2: Configure Your Domain</h3>
-          <p>Edit the <code>.env</code> file:</p>
+          <h3 class="text-lg font-semibold mt-6 mb-2">第二步：配置域名</h3>
+          <p>编辑 <code>.env</code> 文件：</p>
           <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>SITE_DOMAIN=your-domain.com</code></pre>
 
-          <h3 class="text-lg font-semibold mt-6 mb-2">Step 3: Start the Services</h3>
+          <h3 class="text-lg font-semibold mt-6 mb-2">第三步：启动服务</h3>
           <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>docker compose up -d</code></pre>
-          <p>That&apos;s it. Your payment gateway is now running.</p>
+          <p>完成。你的支付网关已开始运行。</p>
 
-          <h3 class="text-lg font-semibold mt-6 mb-2">Step 4: Configure Blockchain RPC</h3>
+          <h3 class="text-lg font-semibold mt-6 mb-2">第四步：配置区块链 RPC</h3>
           <p>
-            Log in to the admin panel (default: <code>admin / Admin@123456</code>), navigate to <strong>Chain Management</strong>, and add RPC endpoints for the chains you want to support. For USDT payments, you&apos;ll typically want:
+            登录管理后台（默认账号 <code>admin / Admin@123456</code>），进入<strong>链管理</strong>页面，为需要使用的链填写 RPC 节点地址。接受 USDT 收款通常需要：
           </p>
           <ul class="list-disc pl-6 space-y-1">
-            <li><strong>Ethereum</strong> &mdash; for ERC-20 USDT</li>
-            <li><strong>Tron</strong> &mdash; for TRC-20 USDT (most popular, lowest fees)</li>
-            <li><strong>BNB Chain</strong> &mdash; for BEP-20 USDT (low fees, fast confirmations)</li>
-            <li><strong>Arbitrum / Base / Polygon</strong> &mdash; for L2 USDT options</li>
+            <li><strong>以太坊</strong> &mdash; ERC-20 USDT</li>
+            <li><strong>波场 Tron</strong> &mdash; TRC-20 USDT（最流行，手续费最低）</li>
+            <li><strong>BNB Chain</strong> &mdash; BEP-20 USDT（低费用，快速确认）</li>
+            <li><strong>Arbitrum / Base / Polygon</strong> &mdash; L2 USDT 选项</li>
           </ul>
           <p>
-            You can get RPC endpoints from providers like <a href="https://www.quicknode.com/" class="text-primary hover:underline">QuickNode</a>, <a href="https://www.alchemy.com/" class="text-primary hover:underline">Alchemy</a>, or <a href="https://www.infura.io/" class="text-primary hover:underline">Infura</a>.
+            可从 <a href="https://www.quicknode.com/" class="text-primary hover:underline">QuickNode</a>、<a href="https://www.alchemy.com/" class="text-primary hover:underline">Alchemy</a> 或 <a href="https://www.infura.io/" class="text-primary hover:underline">Infura</a> 等节点服务商获取 RPC 地址。
           </p>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Accepting Your First USDT Payment</h2>
-          <p>
-            Once deployed, you can create a payment invoice using the REST API:
-          </p>
+          <h2 class="text-xl font-semibold mt-8 mb-3">接受你的第一笔 USDT 付款</h2>
+          <p>部署完成后，使用 REST API 创建支付账单：</p>
 
           <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>{pythonCode}</code></pre>
 
           <p>
-            The <code>pay_url</code> takes your customer to a payment page where they can choose to pay with USDT (or any other supported cryptocurrency). Once the payment is confirmed on-chain, Xcash sends a webhook to your server with the transaction details.
+            <code>pay_url</code> 会将你的客户引导至支付页面，他们可以选择用 USDT（或其他支持的加密货币）付款。链上确认后，Xcash 通过 Webhook 将交易详情推送到你的服务器。
           </p>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Option 2: Use Xcash Cloud (No Deployment)</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">方案二：使用 Xcash 云服务（免部署）</h2>
           <p>
-            If you prefer not to self-host, Xcash also offers a <a href="https://xca.sh" class="text-primary hover:underline">cloud-hosted version</a> starting at $49/month. You get the same features without managing infrastructure.
+            如果你不想自己部署，Xcash 也提供<a href="https://xca.sh" class="text-primary hover:underline">云托管版本</a>，每月 $49 起，无需管理基础设施。
           </p>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Security Best Practices</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">安全最佳实践</h2>
           <ul class="list-disc pl-6 space-y-2">
-            <li><strong>Use a dedicated server</strong> &mdash; don&apos;t run Xcash alongside other public-facing services</li>
-            <li><strong>Enable IP whitelisting</strong> &mdash; restrict API access to your backend servers only</li>
-            <li><strong>Set up withdrawal limits</strong> &mdash; configure daily caps and multi-sig approval for large withdrawals</li>
-            <li><strong>Monitor risk scores</strong> &mdash; Xcash&apos;s MistTrack integration flags suspicious addresses automatically</li>
-            <li><strong>Keep secrets safe</strong> &mdash; back up your <code>.env</code> file and HMAC keys securely</li>
+            <li><strong>使用专用服务器</strong> &mdash; 不要将 Xcash 与其他对外服务放在一起</li>
+            <li><strong>启用 IP 白名单</strong> &mdash; 限制 API 访问仅来自你的后端服务器</li>
+            <li><strong>设置提现限额</strong> &mdash; 配置每日限额和多重签名审核</li>
+            <li><strong>监控风险评分</strong> &mdash; Xcash 的 MistTrack 集成自动标记可疑地址</li>
+            <li><strong>安全保管密钥</strong> &mdash; 备份 <code>.env</code> 文件和 HMAC 密钥</li>
           </ul>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Comparing Self-Hosted Options</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">自托管方案对比</h2>
           <div class="overflow-x-auto">
             <table class="w-full text-sm border-collapse">
               <thead>
                 <tr class="bg-gray-50">
-                  <th class="text-left p-3 border-b">Feature</th>
+                  <th class="text-left p-3 border-b">功能</th>
                   <th class="text-left p-3 border-b">Xcash</th>
                   <th class="text-left p-3 border-b">BTCPay Server</th>
                   <th class="text-left p-3 border-b">CoinGate</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="p-3 border-b">Self-Hosted</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
-                <tr><td class="p-3 border-b">USDT Support</td><td class="p-3 border-b">{'\u2705'} (ERC-20, TRC-20, BEP-20)</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u2705'}</td></tr>
-                <tr><td class="p-3 border-b">100+ Chains</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'} Bitcoin only</td><td class="p-3 border-b">{'\u2705'}</td></tr>
-                <tr><td class="p-3 border-b">Zero Platform Fees</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'} 1%+</td></tr>
-                <tr><td class="p-3 border-b">Deposit/Withdraw</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
-                <tr><td class="p-3 border-b">MistTrack Risk Control</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
-                <tr><td class="p-3 border-b">Deploy Time</td><td class="p-3 border-b">3 minutes</td><td class="p-3 border-b">30+ minutes</td><td class="p-3 border-b">N/A (hosted)</td></tr>
+                <tr><td class="p-3 border-b">自托管</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
+                <tr><td class="p-3 border-b">USDT 支持</td><td class="p-3 border-b">{'\u2705'} (ERC-20, TRC-20, BEP-20)</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u2705'}</td></tr>
+                <tr><td class="p-3 border-b">100+ 链</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'} 仅比特币</td><td class="p-3 border-b">{'\u2705'}</td></tr>
+                <tr><td class="p-3 border-b">零平台费</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'} 1%+</td></tr>
+                <tr><td class="p-3 border-b">充提币</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
+                <tr><td class="p-3 border-b">MistTrack 风控</td><td class="p-3 border-b">{'\u2705'}</td><td class="p-3 border-b">{'\u274c'}</td><td class="p-3 border-b">{'\u274c'}</td></tr>
+                <tr><td class="p-3 border-b">部署时间</td><td class="p-3 border-b">3 分钟</td><td class="p-3 border-b">30 分钟+</td><td class="p-3 border-b">N/A（托管）</td></tr>
               </tbody>
             </table>
           </div>
 
-          <h2 class="text-xl font-semibold mt-8 mb-3">Conclusion</h2>
+          <h2 class="text-xl font-semibold mt-8 mb-3">总结</h2>
           <p>
-            Accepting USDT payments doesn&apos;t have to mean giving up control or paying high fees. A self-hosted payment gateway like Xcash gives you the best of both worlds: your customers can pay with USDT, while you keep full custody of your private keys and pay zero platform fees.
+            接受 USDT 收款不意味着要交出控制权或支付高额费用。像 Xcash 这样的自托管支付网关让你两者兼得：你的客户可以用 USDT 付款，而你完全持有私钥，且无需支付平台费用。
           </p>
           <p>
-            Ready to get started? Deploy Xcash in 3 minutes:
+            准备开始了吗？3 分钟部署 Xcash：
           </p>
           <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
 cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
           <p>
-            Or visit <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> for the cloud-hosted version.
+            或访问 <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> 使用云托管版本。
           </p>
 
         </div>

@@ -1,43 +1,42 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import Layout from '../../../layouts/Layout.astro'
 
 const posts = [
   {
-    title: '如何用自托管加密货币支付网关接受 USDT 收款',
+    title: 'How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway',
     slug: 'how-to-accept-usdt-payments',
     date: '2026-05-15',
-    excerpt: '手把手教你部署自己的加密货币支付网关，接受 USDT（ERC-20、TRC-20、BEP-20）及 100+ 种代币收款，完全掌控私钥和资金，零平台费用。',
-    tags: ['USDT', '教程', '自托管'],
+    excerpt: 'A complete guide to setting up your own self-hosted crypto payment gateway to accept USDT and 100+ other tokens with full control over your private keys and zero platform fees.',
+    tags: ['USDT', 'Tutorial', 'Self-Hosted'],
   },
 ]
 ---
 
 <Layout
-  title="博客 | Xcash - 开源自托管加密货币支付网关"
-  description="关于自托管加密货币支付网关的教程、指南和行业洞察，教你如何接受 USDT 付款和搭建加密货币收款系统。"
-  canonical="https://xca.sh/blog/"
+  title="Blog | Xcash - Open-Source Crypto Payment Gateway"
+  description="Tutorials, guides, and insights about self-hosted cryptocurrency payment gateways, USDT payments, and crypto payment infrastructure."
+  canonical="https://xca.sh/en/blog/"
 >
   <div class="min-h-screen bg-surface">
-    <!-- 导航栏 -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2.5 group">
           <span class="text-text-primary font-semibold text-lg tracking-tight">← Xcash</span>
         </a>
-        <a href="/en/blog/" class="text-sm text-text-secondary hover:text-primary transition-colors">English →</a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-primary transition-colors">中文 →</a>
       </div>
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 pt-24 pb-20">
-      <h1 class="text-4xl font-bold tracking-tight text-text-primary mb-2">博客</h1>
-      <p class="text-text-secondary mb-12">自托管加密货币支付网关的教程和行业洞察。</p>
+      <h1 class="text-4xl font-bold tracking-tight text-text-primary mb-2">Blog</h1>
+      <p class="text-text-secondary mb-12">Tutorials and insights about self-hosted crypto payment gateways.</p>
 
       <div class="space-y-8">
         {posts.map((post) => (
           <article class="border border-border rounded-xl p-6 hover:shadow-lg transition-shadow duration-200 bg-white">
             <time class="text-xs text-text-muted">{post.date}</time>
             <h2 class="text-xl font-semibold mt-1 mb-2">
-              <a href={`/blog/${post.slug}/`} class="text-text-primary hover:text-primary transition-colors">
+              <a href={`/en/blog/${post.slug}/`} class="text-text-primary hover:text-primary transition-colors">
                 {post.title}
               </a>
             </h2>
