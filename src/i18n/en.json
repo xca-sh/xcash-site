@@ -12,7 +12,7 @@
     "badge": "Open Source · Self-hosted · MIT License",
     "title": "Xcash Gateway",
     "phrases": ["Under Your Control", "Self-Hosted & Secure", "Zero Platform Fees", "Multi-Chain Ready", "Open Source Forever"],
-    "description": "Xcash is a self-hosted cryptocurrency payment gateway. Accept payments, manage deposits & withdrawals with full control over your private keys.",
+    "description": "Xcash is an open-source self-hosted cryptocurrency payment gateway. Accept USDT, BTC, ETH payments with zero platform fees, 100+ blockchains support, 3-minute Docker deploy, and full self-custody of private keys. Built-in MistTrack risk control.",
     "ctaStart": "Get Started Free",
     "ctaGithub": "View on GitHub",
     "pillChains": "100+ Chains Supported",
