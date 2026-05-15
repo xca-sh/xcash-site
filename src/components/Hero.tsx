@@ -15,11 +15,9 @@ function RotatingTypewriter({ phrases }: { phrases: string[] }) {
   const [phraseIndex, setPhraseIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
-  const phrasesRef = useRef(phrases)
-  phrasesRef.current = phrases
 
   useEffect(() => {
-    const phrase = phrasesRef.current[phraseIndex]
+    const phrase = phrases[phraseIndex]
     if (!phrase) return
 
     if (!isDeleting && displayed === phrase) {
@@ -28,9 +26,11 @@ function RotatingTypewriter({ phrases }: { phrases: string[] }) {
     }
 
     if (isDeleting && displayed === '') {
-      setIsDeleting(false)
-      setPhraseIndex((prev) => (prev + 1) % phrasesRef.current.length)
-      return
+      const timeout = setTimeout(() => {
+        setIsDeleting(false)
+        setPhraseIndex((prev) => (prev + 1) % phrases.length)
+      }, 30)
+      return () => clearTimeout(timeout)
     }
 
     const speed = isDeleting ? 30 : 60
@@ -41,7 +41,7 @@ function RotatingTypewriter({ phrases }: { phrases: string[] }) {
     }, speed)
 
     return () => clearTimeout(timeout)
-  }, [displayed, isDeleting, phraseIndex])
+  }, [displayed, isDeleting, phraseIndex, phrases])
 
   return (
     <>
@@ -83,8 +83,6 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 }
 
 function DashboardMockup() {
-  const { t: _t } = useTranslation()
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}

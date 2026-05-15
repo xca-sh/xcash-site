@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 export default function Navbar() {
   const { t, i18n } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const docsUrl = 'https://github.com/xca-sh/xcash/blob/main/API.md'
 
   const navLinks = [
     { label: t('nav.features'), href: '#features' },
@@ -51,7 +52,7 @@ export default function Navbar() {
             {i18n.language === 'zh' ? 'EN' : '中文'}
           </button>
           <a
-            href="https://docs.xca.sh"
+            href={docsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 px-4 py-2 cursor-pointer"
@@ -97,6 +98,15 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={docsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="text-text-secondary hover:text-text-primary transition-colors duration-200 py-2 cursor-pointer"
+              >
+                {t('nav.docs')}
+              </a>
               <button
                 onClick={toggleLang}
                 aria-label="Switch language"
