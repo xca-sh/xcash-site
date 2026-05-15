@@ -1,0 +1,202 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+---
+
+<Layout
+  title="How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway | Xcash"
+  description="Learn how to accept USDT payments on your website using a self-hosted crypto payment gateway. Full tutorial with Docker deployment, API integration, and zero platform fees."
+  canonical="https://xca.sh/blog/how-to-accept-usdt-payments/"
+>
+  <div class="min-h-screen bg-surface">
+    <!-- Simple Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">← Home</span>
+        </a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">May 15, 2026</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">USDT</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Tutorial</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Self-Hosted</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            A complete guide to setting up your own self-hosted cryptocurrency payment gateway — accept USDT (ERC-20, TRC-20, BEP-20) and 100+ other tokens with full control over your funds.
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Why Accept USDT Payments?</h2>
+          <p>
+            USDT (Tether) is the most widely used stablecoin in the world, with a market cap exceeding $140 billion. For businesses, accepting USDT offers several advantages over traditional payment methods:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>No chargebacks</strong> — crypto payments are irreversible once confirmed on-chain</li>
+            <li><strong>Global reach</strong> — anyone with a crypto wallet can pay you, anywhere in the world</li>
+            <li><strong>Low fees</strong> — pay only blockchain gas fees, no 2-3% processing fees like credit cards</li>
+            <li><strong>Instant settlement</strong> — funds arrive in your wallet within minutes, no bank delays</li>
+            <li><strong>Multi-chain</strong> — accept USDT on Ethereum (ERC-20), Tron (TRC-20), BNB Chain (BEP-20), and more</li>
+          </ul>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">The Problem with Hosted Payment Gateways</h2>
+          <p>
+            Most crypto payment processors like CoinGate, OpenNode, or NowPayments are hosted solutions — they hold your funds, charge platform fees (typically 0.5-1%), and you're trusting a third party with your private keys. If their service goes down or gets hacked, your business is affected.
+          </p>
+          <p>
+            A <strong>self-hosted crypto payment gateway</strong> solves this by running on your own infrastructure. Your private keys never leave your server, every payment goes directly to your wallet, and there are zero platform fees.
+          </p>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Option 1: Deploy Xcash (3 Minutes)</h2>
+          <p>
+            <a href="https://xca.sh" class="text-primary hover:underline">Xcash</a> is an open-source, self-hosted cryptocurrency payment gateway that supports 100+ blockchains, including all major USDT networks.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">Prerequisites</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>A Linux server (1 vCPU, 2GB RAM minimum)</li>
+            <li>Docker and Docker Compose installed</li>
+            <li>A domain name pointed to your server</li>
+            <li>RPC endpoints for your chosen blockchain(s)</li>
+          </ul>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">Step 1: Clone and Initialize</h3>
+          <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash
+./scripts/init_env.sh</code></pre>
+          <p>This generates all necessary secrets: Django secret key, database passwords, signer keys, and HMAC keys.</p>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">Step 2: Configure Your Domain</h3>
+          <p>Edit the <code>.env</code> file:</p>
+          <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>SITE_DOMAIN=your-domain.com</code></pre>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">Step 3: Start the Services</h3>
+          <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>docker compose up -d</code></pre>
+          <p>That's it. Your payment gateway is now running.</p>
+
+          <h3 class="text-lg font-semibold mt-6 mb-2">Step 4: Configure Blockchain RPC</h3>
+          <p>
+            Log in to the admin panel (default: <code>admin / Admin@123456</code>), navigate to <strong>Chain Management</strong>, and add RPC endpoints for the chains you want to support. For USDT payments, you'll typically want:
+          </p>
+          <ul class="list-disc pl-6 space-y-1">
+            <li><strong>Ethereum</strong> — for ERC-20 USDT</li>
+            <li><strong>Tron</strong> — for TRC-20 USDT (most popular, lowest fees)</li>
+            <li><strong>BNB Chain</strong> — for BEP-20 USDT (low fees, fast confirmations)</li>
+            <li><strong>Arbitrum / Base / Polygon</strong> — for L2 USDT options</li>
+          </ul>
+          <p>
+            You can get RPC endpoints from providers like <a href="https://www.quicknode.com/" class="text-primary hover:underline">QuickNode</a>, <a href="https://www.alchemy.com/" class="text-primary hover:underline">Alchemy</a>, or <a href="https://www.infura.io/" class="text-primary hover:underline">Infura</a>.
+          </p>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Accepting Your First USDT Payment</h2>
+          <p>
+            Once deployed, you can create a payment invoice using the REST API:
+          </p>
+
+          <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>import hashlib, hmac, json, time, uuid
+import requests
+
+API_BASE = "https://your-domain.com/api"
+APPID = "your-app-id"
+HMAC_KEY = "your-hmac-key"
+
+def create_invoice():
+    body = json.dumps({
+        "out_no": "order-20260515-001",
+        "title": "Premium Plan",
+        "currency": "USD",
+        "amount": "29.99"
+    }, separators=(',', ':'))
+
+    timestamp = str(int(time.time()))
+    nonce = str(uuid.uuid4())
+    message = nonce + timestamp + body
+    signature = hmac.new(
+        HMAC_KEY.encode(), message.encode(), hashlib.sha256
+    ).hexdigest()
+
+    resp = requests.post(
+        f"{API_BASE}/v1/invoice",
+        data=body,
+        headers={
+            "XC-Appid": APPID,
+            "XC-Timestamp": timestamp,
+            "XC-Nonce": nonce,
+            "XC-Signature": signature,
+            "Content-Type": "application/json"
+        }
+    )
+    return resp.json()
+
+invoice = create_invoice()
+print(f"Payment URL: {invoice['pay_url']}")</code></pre>
+
+          <p>
+            The <code>pay_url</code> takes your customer to a payment page where they can choose to pay with USDT (or any other supported cryptocurrency). Once the payment is confirmed on-chain, Xcash sends a webhook to your server with the transaction details.
+          </p>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Option 2: Use Xcash Cloud (No Deployment)</h2>
+          <p>
+            If you prefer not to self-host, Xcash also offers a <a href="https://xca.sh" class="text-primary hover:underline">cloud-hosted version</a> starting at $49/month. You get the same features without managing infrastructure.
+          </p>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Security Best Practices</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Use a dedicated server</strong> — don't run Xcash alongside other public-facing services</li>
+            <li><strong>Enable IP whitelisting</strong> — restrict API access to your backend servers only</li>
+            <li><strong>Set up withdrawal limits</strong> — configure daily caps and multi-sig approval for large withdrawals</li>
+            <li><strong>Monitor risk scores</strong> — Xcash's MistTrack integration flags suspicious addresses automatically</li>
+            <li><strong>Keep secrets safe</strong> — back up your <code>.env</code> file and HMAC keys securely</li>
+          </ul>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Comparing Self-Hosted Options</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="text-left p-3 border-b">Feature</th>
+                  <th class="text-left p-3 border-b">Xcash</th>
+                  <th class="text-left p-3 border-b">BTCPay Server</th>
+                  <th class="text-left p-3 border-b">CoinGate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="p-3 border-b">Self-Hosted</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">❌</td></tr>
+                <tr><td class="p-3 border-b">USDT Support</td><td class="p-3 border-b">✅ (ERC-20, TRC-20, BEP-20)</td><td class="p-3 border-b">❌</td><td class="p-3 border-b">✅</td></tr>
+                <tr><td class="p-3 border-b">100+ Chains</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">❌ Bitcoin only</td><td class="p-3 border-b">✅</td></tr>
+                <tr><td class="p-3 border-b">Zero Platform Fees</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">❌ 1%+</td></tr>
+                <tr><td class="p-3 border-b">Deposit/Withdraw</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">❌</td><td class="p-3 border-b">❌</td></tr>
+                <tr><td class="p-3 border-b">MistTrack Risk Control</td><td class="p-3 border-b">✅</td><td class="p-3 border-b">❌</td><td class="p-3 border-b">❌</td></tr>
+                <tr><td class="p-3 border-b">Deploy Time</td><td class="p-3 border-b">3 minutes</td><td class="p-3 border-b">30+ minutes</td><td class="p-3 border-b">N/A (hosted)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="text-xl font-semibold mt-8 mb-3">Conclusion</h2>
+          <p>
+            Accepting USDT payments doesn't have to mean giving up control or paying high fees. A self-hosted payment gateway like Xcash gives you the best of both worlds: your customers can pay with USDT, while you keep full custody of your private keys and pay zero platform fees.
+          </p>
+          <p>
+            Ready to get started? Deploy Xcash in 3 minutes:
+          </p>
+          <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
+          <p>
+            Or visit <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> for the cloud-hosted version.
+          </p>
+
+        </div>
+      </article>
+    </main>
+  </div>
+</Layout>

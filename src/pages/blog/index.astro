@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+const posts = [
+  {
+    title: 'How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway',
+    slug: 'how-to-accept-usdt-payments',
+    date: '2026-05-15',
+    excerpt: 'A step-by-step guide to setting up your own self-hosted crypto payment gateway to accept USDT and other cryptocurrencies — no third-party fees, full control over your private keys.',
+    tags: ['USDT', 'Tutorial', 'Self-Hosted'],
+    lang: 'en',
+  },
+]
+---
+
+<Layout
+  title="Blog | Xcash - Open-Source Crypto Payment Gateway"
+  description="Tutorials, guides, and insights about self-hosted cryptocurrency payment gateways, USDT payments, and crypto payment infrastructure."
+  canonical="https://xca.sh/blog/"
+>
+  <div class="min-h-screen bg-surface">
+    <!-- Simple Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">← Xcash</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pt-24 pb-20">
+      <h1 class="text-4xl font-bold tracking-tight text-text-primary mb-2">Blog</h1>
+      <p class="text-text-secondary mb-12">Tutorials and insights about self-hosted crypto payment gateways.</p>
+
+      <div class="space-y-8">
+        {posts.map((post) => (
+          <article class="border border-border rounded-xl p-6 hover:shadow-lg transition-shadow duration-200 bg-white">
+            <time class="text-xs text-text-muted">{post.date}</time>
+            <h2 class="text-xl font-semibold mt-1 mb-2">
+              <a href={`/blog/${post.slug}/`} class="text-text-primary hover:text-primary transition-colors">
+                {post.title}
+              </a>
+            </h2>
+            <p class="text-text-secondary text-sm leading-relaxed mb-3">{post.excerpt}</p>
+            <div class="flex gap-2">
+              {post.tags.map((tag) => (
+                <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">{tag}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </main>
+  </div>
+</Layout>
