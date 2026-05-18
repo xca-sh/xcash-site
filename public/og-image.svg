@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="1000" cy="100" r="200" fill="#ffffff" opacity="0.03"/>
+  <circle cx="200" cy="500" r="300" fill="#ffffff" opacity="0.02"/>
+  <!-- Xcash Logo mark -->
+  <g transform="translate(100, 160)">
+    <rect x="0" y="0" width="80" height="80" rx="20" fill="#ffffff" opacity="0.15"/>
+    <text x="40" y="54" font-family="Inter, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">X</text>
+  </g>
+  <!-- Main text -->
+  <text x="100" y="300" font-family="Inter, sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1">
+    Xcash
+  </text>
+  <rect x="100" y="320" width="180" height="4" rx="2" fill="url(#accent)"/>
+  <text x="100" y="370" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#93c5fd">
+    Self-Hosted Crypto Payment Gateway
+  </text>
+  <!-- Key features -->
+  <g transform="translate(100, 420)">
+    <g>
+      <rect x="0" y="0" width="270" height="42" rx="8" fill="#ffffff" opacity="0.08"/>
+      <text x="20" y="28" font-family="Inter, sans-serif" font-size="18" fill="#e2e8f0">✓ 100+ Blockchains</text>
+    </g>
+    <g transform="translate(290, 0)">
+      <rect x="0" y="0" width="230" height="42" rx="8" fill="#ffffff" opacity="0.08"/>
+      <text x="20" y="28" font-family="Inter, sans-serif" font-size="18" fill="#e2e8f0">✓ Zero Platform Fees</text>
+    </g>
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="260" height="42" rx="8" fill="#ffffff" opacity="0.08"/>
+      <text x="20" y="28" font-family="Inter, sans-serif" font-size="18" fill="#e2e8f0">✓ Self-Custody Keys</text>
+    </g>
+    <g transform="translate(820, 0)">
+      <rect x="0" y="0" width="220" height="42" rx="8" fill="#ffffff" opacity="0.08"/>
+      <text x="20" y="28" font-family="Inter, sans-serif" font-size="18" fill="#e2e8f0">✓ 3-Minute Deploy</text>
+    </g>
+  </g>
+  <!-- Bottom tagline -->
+  <text x="600" y="560" font-family="Inter, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">
+    Open Source · MIT Licensed · xca.sh
+  </text>
+</svg>

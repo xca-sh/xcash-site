@@ -1,0 +1,144 @@
+---
+import Layout from '../../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="en"
+  noDefaultSchemas={true}
+  title="How to Accept Bitcoin Payments: Self-Hosted vs Hosted Comparison | Xcash"
+  description="How to accept Bitcoin payments in 2026? A full comparison of self-hosted vs hosted crypto payment gateways — costs, security, setup time, supported coins, pros and cons in one clear table."
+  canonical="https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xca.sh/en/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Accept Bitcoin Payments: Self-Hosted vs Hosted Gateway Comparison" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Accept Bitcoin Payments: Self-Hosted vs Hosted Gateway Comparison",
+      "description": "",
+      "datePublished": "2026-05-16",
+      "dateModified": "2026-05-18",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" },
+      "inLanguage": "en"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; Home</span>
+        </a>
+        <a href="/en/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+        <a href="/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="text-sm text-text-secondary hover:text-primary transition-colors">中文</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">May 17, 2026</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            How to Accept Bitcoin Payments: Self-Hosted vs Hosted Gateway Comparison
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Bitcoin</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Tutorial</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Comparison</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<div class="text-text-primary leading-relaxed space-y-5"> <h2 class="text-xl font-semibold mt-8 mb-3">Bitcoin Payments Are Going Mainstream</h2> <p>
+PayPal announced in 2025 that US businesses can accept 100+ cryptocurrencies. Visa keeps pushing crypto-enabled cards. Gnosis and Karsa launched self-custody Visa cards in Europe. Self-custody infrastructure is booming — and Bitcoin payments are no longer an edge case in 2026.
+</p> <p>
+The question for merchants isn't "should I accept Bitcoin?" It's <strong>"how should I accept it?"</strong> Sign up for CoinGate? Deploy BTCPay Server on a VPS? Run Xcash with full multi-chain support?
+</p> <p>
+Short answer: <strong>if you're processing under $10K/year in crypto, a hosted gateway is fine. Above that, self-hosted wins on cost and security.</strong> </p> <h2 class="text-xl font-semibold mt-8 mb-3">Hosted Gateways: Easy Setup, but Someone Else Holds Your Keys</h2> <p>
+Hosted payment gateways are the most common way merchants accept Bitcoin today. Here's how they work:
+</p> <ul class="list-disc pl-6 space-y-2"> <li>Sign up → Pass KYC verification</li> <li>Generate a payment address (the gateway controls the private key)</li> <li>Customer sends Bitcoin to that address</li> <li>Gateway takes 0.5%-1% fee and settles to your bank account (T+1 or slower)</li> </ul> <p>
+Popular options: <strong>CoinGate</strong> (1%), <strong>OpenNode</strong> (0.5-1%), <strong>Coinbase Commerce</strong> (0.5%), <strong>NOWPayments</strong> (0.5%).
+</p> <p>
+The upside is obvious: no servers, no private key management, no technical issues. Sign up and you're live.
+</p> <p>
+The downsides?
+</p> <ul class="list-disc pl-6 space-y-2"> <li><strong>You never actually hold the funds.</strong> Every payment passes through the gateway's wallet first</li> <li><strong>Fees scale with revenue.</strong> At $100K/month, that's $6K-$12K/year in platform fees</li> <li><strong>KYC is mandatory.</strong> Not available in all countries. Some regions simply can't use these services</li> <li><strong>Platform risk is your risk.</strong> If they get hacked or shut down, your funds are at risk. FTX and Celsius weren't that long ago</li> </ul> <h2 class="text-xl font-semibold mt-8 mb-3">Self-Hosted Gateways: Your Keys, Your Money</h2> <p>
+Self-hosted flips the model entirely: <strong>you run the payment gateway on your own server. The private keys never leave your infrastructure.</strong> Customer payments go directly to your chain wallet — no middleman.
+</p> <p>
+How it works:
+</p> <ul class="list-disc pl-6 space-y-2"> <li>Spin up a Linux server (any cloud provider)</li> <li>One Docker command starts the full gateway stack</li> <li>Generate invoices, payment addresses, webhook notifications — all on your machine</li> <li>Payments confirm directly to your on-chain wallet</li> </ul> <p>
+Leading options: <strong>Xcash</strong> (100+ chains, 3-minute deploy), <strong>BTCPay Server</strong> (Bitcoin only, more complex setup).
+</p> <p>
+Why go self-hosted:
+</p> <ul class="list-disc pl-6 space-y-2"> <li><strong>Zero platform fees.</strong> Every cent goes to your wallet</li> <li><strong>Full fund control.</strong> Private keys stay on your hardware</li> <li><strong>No KYC.</strong> Your server, your node, your wallet</li> <li><strong>Total customization.</strong> Risk rules, withdrawal policies, API permissions — all yours</li> </ul> <h2 class="text-xl font-semibold mt-8 mb-3">Hosted vs Self-Hosted at a Glance</h2> <div class="overflow-x-auto"> <table class="w-full text-sm border-collapse"> <thead> <tr class="bg-gray-50"> <th class="text-left p-3 border-b"></th> <th class="text-left p-3 border-b">Hosted Gateway</th> <th class="text-left p-3 border-b">Self-Hosted Gateway</th> </tr> </thead> <tbody> <tr><td class="p-3 border-b font-medium">Private key control</td><td class="p-3 border-b">{'\u274c'} Gateway holds them</td><td class="p-3 border-b">{'\u2705'} You hold them</td></tr> <tr><td class="p-3 border-b font-medium">Platform fee</td><td class="p-3 border-b">0.5% - 1%</td><td class="p-3 border-b">Zero</td></tr> <tr><td class="p-3 border-b font-medium">Settlement</td><td class="p-3 border-b">T+1 to bank account</td><td class="p-3 border-b">Instant to your wallet</td></tr> <tr><td class="p-3 border-b font-medium">KYC required</td><td class="p-3 border-b">Usually yes</td><td class="p-3 border-b">No</td></tr> <tr><td class="p-3 border-b font-medium">Chains supported</td><td class="p-3 border-b">10-50 (varies)</td><td class="p-3 border-b">100+ with Xcash</td></tr> <tr><td class="p-3 border-b font-medium">Setup time</td><td class="p-3 border-b">5 minutes (sign up)</td><td class="p-3 border-b">3 minutes (Docker)</td></tr> <tr><td class="p-3 border-b font-medium">Downtime risk</td><td class="p-3 border-b">Platform down = can't get paid</td><td class="p-3 border-b">You control uptime</td></tr> <tr><td class="p-3 border-b font-medium">Customizability</td><td class="p-3 border-b">Limited to gateway API</td><td class="p-3 border-b">Full control</td></tr> </tbody> </table> </div> <h2 class="text-xl font-semibold mt-8 mb-3">The Cost Math</h2> <p>
+Say your e-commerce store does $50K/month, 20% from crypto ($10K/month). With a hosted gateway at 0.5%: <strong>$600/year</strong> in fees. Over five years: $3,000.
+</p> <p>
+Scale that to $50K/month in crypto payments: <strong>$3,000/year</strong> in pure platform fees. For what? Someone else holding your keys.
+</p> <p>
+A self-hosted gateway? A low-tier Linux server costs about $5/month ($60/year). <strong>One year of server costs is less than one month of hosted gateway fees.</strong> </p> <p>
+The only "cost" of self-hosted is the 3 minutes it takes to run <code>docker compose up -d</code>.
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">Self-Hosted Options Compared</h2> <div class="overflow-x-auto"> <table class="w-full text-sm border-collapse"> <thead> <tr class="bg-gray-50"> <th class="text-left p-3 border-b">Feature</th> <th class="text-left p-3 border-b">Xcash</th> <th class="text-left p-3 border-b">BTCPay Server</th> <th class="text-left p-3 border-b">OpenNode (Hosted)</th> <th class="text-left p-3 border-b">CoinGate (Hosted)</th> </tr> </thead> <tbody> <tr><td class="p-3 border-b">Self-custody</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">Bitcoin</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td></tr> <tr><td class="p-3 border-b">EVM chains (ETH, BSC, Polygon, etc.)</td><td class="p-3 border-b">\u2705 100+</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">Some</td><td class="p-3 border-b">Some</td></tr> <tr><td class="p-3 border-b">USDT (ERC-20/TRC-20/BEP-20)</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u2705</td></tr> <tr><td class="p-3 border-b">Platform fee</td><td class="p-3 border-b">Zero</td><td class="p-3 border-b">Zero</td><td class="p-3 border-b">0.5%-1%</td><td class="p-3 border-b">1%</td></tr> <tr><td class="p-3 border-b">Deploy time</td><td class="p-3 border-b">3 min</td><td class="p-3 border-b">30 min+</td><td class="p-3 border-b">Sign up</td><td class="p-3 border-b">Sign up</td></tr> <tr><td class="p-3 border-b">Built-in risk scoring</td><td class="p-3 border-b">\u2705 (MistTrack)</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">Deposit & withdraw</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">Webhook notifications</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td></tr> </tbody> </table> </div> <h2 class="text-xl font-semibold mt-8 mb-3">When to Pick Hosted vs Self-Hosted</h2> <p><strong>Choose hosted if:</strong></p> <ul class="list-disc pl-6 space-y-2"> <li>Personal blog or micro-site, under $1K/month in crypto transactions</li> <li>Zero server experience and no desire to learn</li> <li>Testing the market — you'll reassess in 3 months</li> </ul> <p><strong>Choose self-hosted if:</strong></p> <ul class="list-disc pl-6 space-y-2"> <li>SaaS platform, e-commerce store, or cross-border business, over $1K/month in crypto</li> <li>You care about self-custody and don't want a third party holding your keys</li> <li>You need multi-chain (not just Bitcoin — also USDT, ETH, BSC)</li> <li>You can run a Docker command</li> </ul> <h2 class="text-xl font-semibold mt-8 mb-3">How to Start Accepting Bitcoin Payments</h2> <p>Three paths, depending on your choice:</p> <p><strong>Option A: Hosted (5 minutes)</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>1. Sign up at CoinGate.com or OpenNode.com
+2. Pass KYC (passport/ID)
+3. Get your API key
+4. Plug into your checkout page</code></pre> <p><strong>Option B: Self-hosted with Xcash (3 minutes)</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre> <p><strong>Option C: Self-hosted with BTCPay Server (30 minutes, Bitcoin only)</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># Bitcoin only — no USDT, no ETH, no multi-chain
+curl -o btcpay.sh https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/master/btcpay.sh
+# Manual env vars, domain config, SSL setup required
+chmod +x btcpay.sh && ./btcpay.sh --version "1.12.3"</code></pre> <p>
+BTCPay Server is solid if you only need Bitcoin and have time to configure it. But if you want <strong>Bitcoin + 100+ EVM chains + USDT on three networks</strong> out of the box, Xcash is the more complete self-hosted solution.
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">The Bottom Line</h2> <p>
+Accepting Bitcoin payments isn't a technical challenge in 2026. The real question is: <strong>how much are you willing to pay for convenience?</strong> </p> <p>
+Hosted gateways take 0.5%-1% forever in exchange for zero setup friction. Self-hosted takes 3 minutes of your time in exchange for full fund sovereignty and zero platform fees.
+</p> <p>
+If your business is growing — even as a side project — going self-hosted now is cheaper than migrating later. <strong>Every transaction you process through a hosted gateway is one where someone else takes a cut.</strong> </p> <p>
+Deploy Xcash in 3 minutes:
+</p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre> <p>
+Or check out the cloud-hosted version at <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a>.
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">FAQ</h2> <h3 class="text-lg font-semibold mt-6 mb-2">Do I need to pay taxes when accepting Bitcoin payments?</h3> <p>
+Tax treatment varies by jurisdiction. Generally, crypto payments received as business income are taxable. Capital gains tax may apply if you convert to fiat. A self-hosted gateway doesn't change your tax obligations — they depend on how you report income, not the tool you use to collect it. Consult a local accountant.
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">What cryptocurrencies do self-hosted gateways support?</h3> <p>
+BTCPay Server only supports Bitcoin. Xcash supports Bitcoin, Ethereum, BSC, Polygon, Arbitrum, Optimism, and 100+ EVM chains, plus USDT/USDC across ERC-20, TRC-20, and BEP-20 networks. If you need multi-chain, Xcash is the most complete self-hosted gateway available.
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">Do I need a static IP for a self-hosted gateway?</h3> <p>
+No. Your gateway communicates through blockchain nodes and webhook callbacks — no static IP required. Nginx reverse proxy with a domain name works fine. Most merchants use AWS Lightsail or Alibaba Cloud at the lowest tier (~$5/month), which is more than enough.
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">How fast do payments arrive?</h3> <p>
+With hosted gateways: block confirmations + T+1 settlement = 1-2 days total. With self-hosted: funds arrive in your on-chain wallet as soon as the blockchain confirms the transaction — typically 10-60 minutes depending on the network's confirmation requirements. You can move them to cold storage any time.
+</p> </div>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">Related Posts</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/en/blog/how-to-accept-usdt-payments/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">USDT · Tutorial</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>

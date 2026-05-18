@@ -41,10 +41,47 @@ print(f"Payment URL: {invoice['pay_url']}")`
 ---
 
 <Layout
+  noDefaultSchemas={true}
   title="如何用自托管加密货币支付网关接受 USDT 收款 | Xcash"
   description="手把手教你部署自己的加密货币支付网关，接受 USDT（ERC-20、TRC-20、BEP-20）及 100+ 种加密货币收款，零平台费用，完全掌控私钥。附完整代码示例。"
   canonical="https://xca.sh/blog/how-to-accept-usdt-payments/"
 >
+  <Fragment slot="head">
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://xca.sh/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "如何用自托管加密货币支付网关接受 USDT 收款" }
+      ]
+    })} />
+    <!-- Article -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "如何用自托管加密货币支付网关接受 USDT 收款",
+      "description": "完整教程：部署你自己的加密货币支付网关，接受 USDT（ERC-20、TRC-20、BEP-20）及 100+ 种代币收款，完全掌控资金和私钥。",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/blog/how-to-accept-usdt-payments/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/blog/how-to-accept-usdt-payments/" },
+      "inLanguage": "zh-CN"
+    })} />
+    <!-- Organization (kept for all pages) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
   <div class="min-h-screen bg-surface">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -194,6 +231,21 @@ cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
           <p>
             或访问 <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> 使用云托管版本。
           </p>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">相关阅读</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/blog/why-self-hosted-payment-gateways-are-taking-over/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">行业洞察</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">为什么自托管加密货币支付网关是 2026 年的大趋势</h3>
+              </a>
+              <a href="/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">比特币 · 对比</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">如何接受比特币付款？自托管 vs 托管方案全面对比</h3>
+              </a>
+            </div>
+          </section>
 
         </div>
       </article>

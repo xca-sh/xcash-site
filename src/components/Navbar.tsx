@@ -14,12 +14,23 @@ export default function Navbar() {
     { label: t('nav.integration'), href: '#integration' },
     { label: t('nav.pricing'), href: '#pricing' },
     { label: t('nav.security'), href: '#security' },
+    { label: t('nav.blog'), href: i18n.language === 'en' ? '/en/blog/' : '/blog/' },
   ]
 
   const toggleLang = () => {
     const next = i18n.language === 'zh' ? 'en' : 'zh'
     i18n.changeLanguage(next)
     localStorage.setItem('lang', next)
+    // Update URL: add or remove ?lang=en
+    const url = new URL(window.location.href)
+    if (next === 'en') {
+      url.searchParams.set('lang', 'en')
+    } else {
+      url.searchParams.delete('lang')
+    }
+    window.history.replaceState({}, '', url.toString())
+    // Update HTML lang attribute
+    document.documentElement.lang = next === 'en' ? 'en' : 'zh-CN'
   }
 
   return (

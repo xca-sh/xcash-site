@@ -1,0 +1,150 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="zh-CN"
+  noDefaultSchemas={true}
+  title="如何接受比特币付款？自托管 vs 托管方案全面对比 | Xcash"
+  description="2026 年如何接受比特币付款？自托管与托管支付网关的全面对比——成本、安全性、部署难度、支持币种、优缺点一张表说清楚。"
+  canonical="https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://xca.sh/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "如何接受比特币付款？自托管 vs 托管方案全面对比" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "如何接受比特币付款？自托管 vs 托管方案全面对比",
+      "description": "",
+      "datePublished": "2026-05-16",
+      "dateModified": "2026-05-18",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" },
+      "inLanguage": "zh-CN"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; 首页</span>
+        </a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">博客</a>
+        <a href="/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="text-sm text-text-secondary hover:text-primary transition-colors">English</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">2026 年 5 月 17 日</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            如何接受比特币付款？自托管 vs 托管方案全面对比
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">比特币</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">教程</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">对比</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<div class="text-text-primary leading-relaxed space-y-5"> <h2 class="text-xl font-semibold mt-8 mb-3">比特币付款正在变为主流</h2> <p>
+PayPal 在 2025 年宣布允许美国商家接受 100+ 种加密货币付款，Visa 持续推进加密货币卡业务，Gnosis 和 Karsa 等团队相继推出自托管信用卡——2026 年的全球支付场景里，加密货币已经不是边缘选项。
+</p> <p>
+但对商家来说，最大的问题不是"要不要接受比特币"，而是<strong>"怎么接受"</strong>。是注册 CoinGate 这种托管服务，还是在自己的服务器上部署自托管方案？答案取决于你的业务规模、技术能力和对资金安全的态度。
+</p> <p>
+先给结论：<strong>年交易额低于 1 万美元，托管方案省事。超过这个数，自托管的经济账和安全性就全面胜出了。</strong> </p> <h2 class="text-xl font-semibold mt-8 mb-3">托管方案：即开即用，但你的钱在别人手里</h2> <p>
+托管支付网关是目前最常见的比特币付款方案。商家的运作流程是：
+</p> <ul class="list-disc pl-6 space-y-2"> <li>注册账户 → 通过 KYC 验证</li> <li>生成收款地址（由托管方控制私钥）</li> <li>客户付款后，资金先到托管方钱包</li> <li>托管方扣除 0.5%-1% 的手续费，结算到你绑定的银行账户</li> </ul> <p>
+代表产品：<strong>CoinGate</strong>（1% 费率）、<strong>OpenNode</strong>（0.5-1%）、<strong>Coinbase Commerce</strong>（0.5%）、<strong>NOWPayments</strong>（0.5%）。
+</p> <p>
+这类方案的最大优势是简便——不需要懂服务器、不需要管私钥、不需要面对技术故障。注册开箱即用。
+</p> <p>
+代价是什么？
+</p> <ul class="list-disc pl-6 space-y-2"> <li><strong>你永远不是资金的实际持有人。</strong>每次收款都经过托管方的钱包，本质上是第三方替你保管</li> <li><strong>平台费随流水线性增长。</strong>月流水 10 万美元，每年白送托管方 6000-12000 美元</li> <li><strong>KYC 是强制门槛。</strong>在 CoinGate 或 Coinbase 注册需要提交身份证明，部分地区不支持</li> <li><strong>平台倒闭或攻击等于你的钱归零。</strong>FTX 的教训还历历在目</li> </ul> <p>
+如果你是微型商家（月交易额几百美元），托管方案的成本是可以接受的。但如果你的生意在增长，换个方案的成本会越来越高——迁移成本 + 丢掉的平台费。
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">自托管方案：你的私钥，你的钱</h2> <p>
+自托管方案完全反过来：<strong>你把支付网关部署在自己的服务器上，私钥只属于你。</strong>客户付款直接打到你的链上钱包，没有中间环节。
+</p> <p>
+操作流程：
+</p> <ul class="list-disc pl-6 space-y-2"> <li>一台 Linux 服务器</li> <li>一条 Docker 命令拉起网关</li> <li>生成收款地址、发票、Webhook 通知——全都跑在自己的机器上</li> <li>客户付款直接确认到你的链上钱包</li> </ul> <p>
+代表产品：<strong>Xcash</strong>（100+ 链，3 分钟部署）、<strong>BTCPay Server</strong>（仅比特币，部署较复杂）。
+</p> <p>
+自托管的核心优势：
+</p> <ul class="list-disc pl-6 space-y-2"> <li><strong>零平台费。</strong>每一分钱都直接到你的钱包</li> <li><strong>完全的资金控制。</strong>私钥存在你的服务器上，没人能动你的钱</li> <li><strong>无需 KYC。</strong>这是你的服务器、你的节点、你的钱包</li> <li><strong>可定制。</strong>自己控制风控规则、提现策略、API 权限</li> </ul> <h2 class="text-xl font-semibold mt-8 mb-3">一张表看明白</h2> <div class="overflow-x-auto"> <table class="w-full text-sm border-collapse"> <thead> <tr class="bg-gray-50"> <th class="text-left p-3 border-b">对比维度</th> <th class="text-left p-3 border-b">托管方案</th> <th class="text-left p-3 border-b">自托管方案</th> </tr> </thead> <tbody> <tr><td class="p-3 border-b font-medium">私钥控制</td><td class="p-3 border-b">{'\u274c'} 托管方持有</td><td class="p-3 border-b">{'\u2705'} 你自己持有</td></tr> <tr><td class="p-3 border-b font-medium">平台费率</td><td class="p-3 border-b">0.5% - 1%</td><td class="p-3 border-b">零</td></tr> <tr><td class="p-3 border-b font-medium">资金到账</td><td class="p-3 border-b">T+1 结算到银行账户</td><td class="p-3 border-b">即时到你的链上钱包</td></tr> <tr><td class="p-3 border-b font-medium">KYC 要求</td><td class="p-3 border-b">通常需要</td><td class="p-3 border-b">不需要</td></tr> <tr><td class="p-3 border-b font-medium">支持的链数</td><td class="p-3 border-b">各平台不同（通常 10-50 条）</td><td class="p-3 border-b">取决于方案（Xcash 支持 100+）</td></tr> <tr><td class="p-3 border-b font-medium">部署难度</td><td class="p-3 border-b">注册即用</td><td class="p-3 border-b">Docker 3 分钟</td></tr> <tr><td class="p-3 border-b font-medium">宕机风险</td><td class="p-3 border-b">平台停机 = 无法收款</td><td class="p-3 border-b">自己控制高可用</td></tr> <tr><td class="p-3 border-b font-medium">可定制性</td><td class="p-3 border-b">受限于平台 API</td><td class="p-3 border-b">完全可控</td></tr> </tbody> </table> </div> <h2 class="text-xl font-semibold mt-8 mb-3">成本算一笔账</h2> <p>
+假设你的电商网站月收入 5 万美元，其中 20% 来自加密货币付款（月 1 万美元）。用托管方案（0.5% 费率）：每年费用 = $10,000 × 12 × 0.5% = <strong>$600</strong>。五年就是 3000 美元。
+</p> <p>
+如果生意增长到月 5 万美元加密收入：每年费用 = $50,000 × 12 × 0.5% = <strong>$3,000/年</strong>。
+</p> <p>
+自托管方案的成本呢？一台 Linux 服务器（阿里云最低配）每月约 30-50 元人民币（4-7 美元）。<strong>一年的服务器成本不到托管方案一个月的平台费。</strong> </p> <p>
+自托管唯一的一次性成本是部署时间——如果你会用 Docker，大约 3 分钟就能跑起来。
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">自托管方案横向对比</h2> <div class="overflow-x-auto"> <table class="w-full text-sm border-collapse"> <thead> <tr class="bg-gray-50"> <th class="text-left p-3 border-b">功能</th> <th class="text-left p-3 border-b">Xcash</th> <th class="text-left p-3 border-b">BTCPay Server</th> <th class="text-left p-3 border-b">OpenNode (托管)</th> <th class="text-left p-3 border-b">CoinGate (托管)</th> </tr> </thead> <tbody> <tr><td class="p-3 border-b">私钥控制</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">比特币</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td></tr> <tr><td class="p-3 border-b">EVM 链（ETH, BSC, Polygon 等）</td><td class="p-3 border-b">\u2705 100+ 链</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">部分</td><td class="p-3 border-b">部分</td></tr> <tr><td class="p-3 border-b">USDT (ERC-20/TRC-20/BEP-20)</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u2705</td></tr> <tr><td class="p-3 border-b">平台费</td><td class="p-3 border-b">零</td><td class="p-3 border-b">零</td><td class="p-3 border-b">0.5%-1%</td><td class="p-3 border-b">1%</td></tr> <tr><td class="p-3 border-b">部署时间</td><td class="p-3 border-b">3 分钟</td><td class="p-3 border-b">30 分钟+</td><td class="p-3 border-b">注册即用</td><td class="p-3 border-b">注册即用</td></tr> <tr><td class="p-3 border-b">内置风控 (MistTrack)</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">充提币功能</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td><td class="p-3 border-b">\u274c</td></tr> <tr><td class="p-3 border-b">Webhook 通知</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td><td class="p-3 border-b">\u2705</td></tr> </tbody> </table> </div> <h2 class="text-xl font-semibold mt-8 mb-3">什么场景选托管？什么场景选自托管？</h2> <p><strong>托管方案更适合：</strong></p> <ul class="list-disc pl-6 space-y-2"> <li>个人博客或小型网站，月交易额低于 1000 美元</li> <li>完全不懂服务器操作</li> <li>需要快速上线测试市场反应</li> </ul> <p><strong>自托管方案更适合：</strong></p> <ul class="list-disc pl-6 space-y-2"> <li>SaaS 平台、电商网站、跨境业务，月交易额超过 1000 美元</li> <li>对资金安全有要求，不接受第三方控制你的私钥</li> <li>需要多链支持（不只想接受比特币，还要 USDT、ETH、BSC）</li> <li>有基础运维能力（会跑 Docker 命令就行）</li> </ul> <h2 class="text-xl font-semibold mt-8 mb-3">怎么开始接受比特币付款</h2> <p>三种方式，任选一种：</p> <p><strong>方案 A：托管快速入门（5 分钟）</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>1. 在 CoinGate.com 或 OpenNode.com 注册
+2. 通过 KYC 验证（护照/身份证）
+3. 获取 API Key
+4. 在网站后台设置支付方式</code></pre> <p><strong>方案 B：自托管 Xcash（3 分钟）</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre> <p><strong>方案 C：自托管 BTCPay Server（30 分钟）</strong></p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># BTCPay 仅支持比特币
+curl -o btcpay.sh https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/master/btcpay.sh
+# 需要手动配置环境变量、域名、SSL
+chmod +x btcpay.sh && ./btcpay.sh --version "1.12.3"</code></pre> <p>
+如果你只需要比特币且愿意花时间配置，BTCPay 是不错的选择。但如果想要<strong>比特币 + 100+ 条 EVM 链 + USDT（ERC-20/TRC-20/BEP-20）</strong> 一网打尽，Xcash 是更完整的方案。
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">总结</h2> <p>
+接受比特币付款在 2026 年已经不是什么技术难题。真正的问题是：<strong>你愿意为方便付出多少代价？</strong> </p> <p>
+托管方案用 0.5%-1% 的永久抽成换取了注册即用的便利，代价是对私钥和资金失去控制。自托管方案用 3 分钟的部署时间换取了完全的资金主权和零平台费，代价是得懂一点命令行。
+</p> <p>
+如果你的生意在持续增长——哪怕只是副业——现在选自托管比以后迁移更划算。<strong>因为每多收一笔款，托管方案就多抽一笔水，这个成本只会越滚越大。</strong> </p> <p>
+开始使用 Xcash：
+</p> <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre> <p>
+或访问 <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> 了解更多。
+</p> <h2 class="text-xl font-semibold mt-8 mb-3">常见问题</h2> <h3 class="text-lg font-semibold mt-6 mb-2">接受比特币付款需要纳税吗？</h3> <p>
+各国法规不同。一般来说，加密货币收款需要作为营业收入申报，资本利得税取决于你后续是否兑换为法币。建议咨询当地会计师。自托管方案本身不带来额外税务义务——你的税务责任取决于收入性质，而不是收款工具。
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">自托管方案支持哪些加密货币？</h3> <p>
+BTCPay Server 仅支持比特币。Xcash 支持比特币、以太坊、BSC、Polygon、Arbitrum、Optimism 等 100+ 条 EVM 链，以及 USDT、USDC 等多网络稳定币。如果需要多链收款，Xcash 是目前最完整的自托管选择。
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">自托管方案需要固定 IP 吗？</h3> <p>
+不需要。你的网关通过区块链节点和 Webhook 回调工作，不需要公网固定 IP。Nginx 反向代理 + 域名指向就可以稳定运行。大部分商家用 AWS 或阿里云的弹性 IP，一个月 30 元人民币的配置足够。
+</p> <h3 class="text-lg font-semibold mt-6 mb-2">客户付款后多久能到账？</h3> <p>
+托管方案通常需要等待区块确认后结算到平台，再由平台 T+1 打款给你——整个过程 1-2 天。自托管方案在区块确认后资金直接进入你的链上钱包，通常是 10-60 分钟（取决于区块链确认数）。你可以在任何时候提取到自己的冷钱包。
+</p> </div>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">相关阅读</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/blog/how-to-accept-usdt-payments/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">USDT · 教程</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">如何用自托管加密货币支付网关接受 USDT 收款</h3>
+              </a>
+              <a href="/blog/why-self-hosted-payment-gateways-are-taking-over/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">行业洞察</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">为什么自托管加密货币支付网关是 2026 年的大趋势</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>

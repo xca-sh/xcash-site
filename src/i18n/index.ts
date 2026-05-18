@@ -4,7 +4,24 @@ import zh from './zh.json'
 import en from './en.json'
 
 const isServer = typeof window === 'undefined'
-const savedLang = isServer ? null : localStorage.getItem('lang')
+
+function getInitialLang(): string {
+  // 1. URL param ?lang=en takes priority
+  if (!isServer) {
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang')
+    if (urlLang === 'en' || urlLang === 'zh') {
+      localStorage.setItem('lang', urlLang)
+      // Update HTML lang attribute immediately
+      document.documentElement.lang = urlLang === 'en' ? 'en' : 'zh-CN'
+      return urlLang
+    }
+  }
+  // 2. Fall back to localStorage
+  return (isServer ? null : localStorage.getItem('lang')) || 'zh'
+}
+
+const initialLang = getInitialLang()
 
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
@@ -12,7 +29,7 @@ if (!i18n.isInitialized) {
       zh: { translation: zh },
       en: { translation: en },
     },
-    lng: savedLang || 'zh',
+    lng: initialLang,
     fallbackLng: 'zh',
     interpolation: { escapeValue: false },
   })

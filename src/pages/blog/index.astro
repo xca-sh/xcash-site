@@ -3,6 +3,20 @@ import Layout from '../../layouts/Layout.astro'
 
 const posts = [
   {
+    title: '为什么自托管加密货币支付网关是 2026 年的大趋势',
+    slug: 'why-self-hosted-payment-gateways-are-taking-over',
+    date: '2026-05-16',
+    excerpt: '稳定币市值突破 3000 亿美元，加密货币支付正在从小众走向主流。但托管方案收取高额费用、控制你的私钥——自托管支付网关才是真正符合 Web3 精神的答案。',
+    tags: ['自托管', '行业洞察', '稳定币'],
+  },
+  {
+    title: '如何接受比特币付款？自托管 vs 托管方案全面对比',
+    slug: 'how-to-accept-bitcoin-payments-self-hosted-vs-hosted',
+    date: '2026-05-17',
+    excerpt: '全面对比自托管和托管比特币支付方案，从私钥控制权、平台费用、部署难度到链上风控，帮你选对适合自己的方案。',
+    tags: ['比特币', '教程', '对比'],
+  },
+  {
     title: '如何用自托管加密货币支付网关接受 USDT 收款',
     slug: 'how-to-accept-usdt-payments',
     date: '2026-05-15',
@@ -13,6 +27,7 @@ const posts = [
 ---
 
 <Layout
+  noDefaultSchemas={true}
   title="博客 | Xcash - 开源自托管加密货币支付网关"
   description="关于自托管加密货币支付网关的教程、指南和行业洞察，教你如何接受 USDT 付款和搭建加密货币收款系统。"
   canonical="https://xca.sh/blog/"

@@ -5,17 +5,30 @@ interface Props {
   title?: string
   description?: string
   canonical?: string
+  lang?: 'zh-CN' | 'en'
+  ogLocale?: string
+  noDefaultSchemas?: boolean
 }
 
+const LANG = Astro.props.lang ?? 'zh-CN'
+const IS_EN = LANG === 'en'
+
 const {
-  title = 'Xcash - 开源自托管加密货币支付网关',
-  description = 'Xcash 是全球首款开源自托管的加密货币金融网关。支持支付、充币、提币，零平台费用，完全掌控您的资产和私钥。支持 100+ 链，3 分钟部署。',
-  canonical = 'https://xca.sh/',
+  title = IS_EN
+    ? 'Xcash - Open-Source Self-Hosted Crypto Payment Gateway'
+    : 'Xcash - 开源自托管加密货币支付网关',
+  description = IS_EN
+    ? 'Xcash is an open-source self-hosted crypto payment gateway. Accept USDT, BTC, ETH with zero platform fees, 100+ blockchains, and complete self-custody of private keys. Deploy in 3 minutes with Docker.'
+    : 'Xcash 是全球首款开源自托管的加密货币金融网关。支持支付、充币、提币，零平台费用，完全掌控您的资产和私钥。支持 100+ 链，3 分钟部署。',
+  canonical = IS_EN ? 'https://xca.sh/en/' : 'https://xca.sh/',
 } = Astro.props
+
+const ogLocale = Astro.props.ogLocale ?? (IS_EN ? 'en_US' : 'zh_CN')
+const ogLocaleAlt = IS_EN ? 'zh_CN' : 'en_US'
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={LANG}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,11 +40,6 @@ const {
     <meta name="author" content="Xcash" />
     <link rel="canonical" href={canonical} />
 
-    <!-- Multilingual -->
-    <link rel="alternate" hreflang="zh" href="https://xca.sh/" />
-    <link rel="alternate" hreflang="en" href="https://xca.sh/?lang=en" />
-    <link rel="alternate" hreflang="x-default" href="https://xca.sh/" />
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -41,8 +49,8 @@ const {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Xcash" />
-    <meta property="og:locale" content="zh_CN" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -94,61 +102,66 @@ const {
       ]
     })} />
 
-    <!-- JSON-LD: FAQ (Google Rich Results) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "什么是 Xcash？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Xcash 是开源自托管的加密货币支付网关，商家可以自己部署、自己掌控私钥，接受 USDT、BTC、ETH 等加密货币付款，零平台费用，支持 100+ 区块链。"
+    <!-- JSON-LD: FAQ (Google Rich Results) — homepage only -->
+    {!Astro.props.noDefaultSchemas && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "什么是 Xcash？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Xcash 是开源自托管的加密货币支付网关，商家可以自己部署、自己掌控私钥，接受 USDT、BTC、ETH 等加密货币付款，零平台费用，支持 100+ 区块链。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Xcash 和 BTCPay Server 有什么区别？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Xcash 支持 100+ 区块链（包括 EVM 链、Bitcoin、Tron），而 BTCPay Server 主要只支持比特币。Xcash 还支持充提币、自动归集和 MistTrack 链上风控。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Xcash 如何保证资金安全？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Xcash 采用完全自托管架构，私钥存储在您自己的基础设施上。隔离签名服务、HMAC-SHA256 API 认证、IP 白名单和可配置的提现风控规则确保资金安全。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "部署 Xcash 需要什么条件？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "一台 Linux 服务器（最低 1 核 2GB）、Docker 和 Docker Compose，以及各区块链的 RPC 节点地址。3 分钟即可完成部署。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Xcash 支持哪些加密货币？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "支持所有 EVM 兼容链（以太坊、BSC、Polygon、Arbitrum、Base、Optimism、Avalanche 等）、Bitcoin 和 Tron。EVM 链支持任意 ERC-20 代币，包括 USDT、USDC 等。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Xcash 收费吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Xcash 开源版完全免费（MIT 协议），零平台费用。您只需要支付区块链的 Gas 费用。云托管版每月 $49 起。"
+            }
           }
-        },
-        {
-          "@type": "Question",
-          "name": "Xcash 和 BTCPay Server 有什么区别？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Xcash 支持 100+ 区块链（包括 EVM 链、Bitcoin、Tron），而 BTCPay Server 主要只支持比特币。Xcash 还支持充提币、自动归集和 MistTrack 链上风控。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Xcash 如何保证资金安全？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Xcash 采用完全自托管架构，私钥存储在您自己的基础设施上。隔离签名服务、HMAC-SHA256 API 认证、IP 白名单和可配置的提现风控规则确保资金安全。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "部署 Xcash 需要什么条件？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "一台 Linux 服务器（最低 1 核 2GB）、Docker 和 Docker Compose，以及各区块链的 RPC 节点地址。3 分钟即可完成部署。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Xcash 支持哪些加密货币？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "支持所有 EVM 兼容链（以太坊、BSC、Polygon、Arbitrum、Base、Optimism、Avalanche 等）、Bitcoin 和 Tron。EVM 链支持任意 ERC-20 代币，包括 USDT、USDC 等。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Xcash 收费吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Xcash 开源版完全免费（MIT 协议），零平台费用。您只需要支付区块链的 Gas 费用。云托管版每月 $49 起。"
-          }
-        }
-      ]
-    })} />
+        ]
+      })} />
+    )}
+
+    <!-- Additional head content (Article schema etc.) -->
+    <slot name="head" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

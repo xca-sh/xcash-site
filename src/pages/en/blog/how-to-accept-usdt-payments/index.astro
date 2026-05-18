@@ -41,10 +41,48 @@ print(f"Payment URL: {invoice['pay_url']}")`
 ---
 
 <Layout
+  lang="en"
+  noDefaultSchemas={true}
   title="How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway | Xcash"
   description="Learn how to accept USDT payments with a self-hosted crypto payment gateway. Full tutorial: Docker deploy, API integration, zero platform fees, fully self-custodial."
   canonical="https://xca.sh/en/blog/how-to-accept-usdt-payments/"
 >
+  <Fragment slot="head">
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xca.sh/en/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway" }
+      ]
+    })} />
+    <!-- Article -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Accept USDT Payments with a Self-Hosted Crypto Payment Gateway",
+      "description": "A complete guide to setting up your own self-hosted crypto payment gateway to accept USDT and 100+ other tokens with full control over your private keys and zero platform fees.",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/en/blog/how-to-accept-usdt-payments/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/en/blog/how-to-accept-usdt-payments/" },
+      "inLanguage": "en"
+    })} />
+    <!-- Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
   <div class="min-h-screen bg-surface">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">

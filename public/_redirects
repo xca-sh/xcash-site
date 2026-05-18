@@ -1,0 +1,5 @@
+# www -> apex redirect
+https://www.xca.sh/* https://xca.sh/:splat 301
+
+# 404 catch-all (soft-404 prevention)
+/* /404.html 404
