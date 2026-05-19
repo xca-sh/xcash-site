@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xca.sh/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xca.sh/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,7 +23,7 @@
     <loc>https://xca.sh/blog/</loc>
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,15 +31,63 @@
     <loc>https://xca.sh/en/blog/</loc>
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/blog/why-self-hosted-payment-gateways-are-taking-over/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/why-self-hosted-payment-gateways-are-taking-over/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/why-self-hosted-payment-gateways-are-taking-over/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/en/blog/why-self-hosted-payment-gateways-are-taking-over/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/why-self-hosted-payment-gateways-are-taking-over/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/why-self-hosted-payment-gateways-are-taking-over/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" />
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xca.sh/blog/how-to-accept-usdt-payments/</loc>
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/how-to-accept-usdt-payments/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/how-to-accept-usdt-payments/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -47,7 +95,7 @@
     <loc>https://xca.sh/en/blog/how-to-accept-usdt-payments/</loc>
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/how-to-accept-usdt-payments/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/how-to-accept-usdt-payments/" />
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
