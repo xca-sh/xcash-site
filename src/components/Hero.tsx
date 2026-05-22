@@ -250,7 +250,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-start gap-3 mb-12"
             >
               <a
-                href="https://github.com/xca-sh/xcash"
+                href="https://dash.xca.sh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary/25 cursor-pointer"

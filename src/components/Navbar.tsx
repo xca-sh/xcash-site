@@ -71,7 +71,7 @@ export default function Navbar() {
             {t('nav.docs')}
           </a>
           <a
-            href="https://github.com/xca-sh/xcash"
+            href="https://dash.xca.sh"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium text-white bg-primary hover:bg-primary-dark transition-colors duration-200 px-4 py-2 rounded-lg cursor-pointer"
@@ -127,7 +127,7 @@ export default function Navbar() {
                 {i18n.language === 'zh' ? 'English' : '中文'}
               </button>
               <a
-                href="https://github.com/xca-sh/xcash"
+                href="https://dash.xca.sh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-white bg-primary hover:bg-primary-dark transition-colors duration-200 px-4 py-2.5 rounded-lg text-center mt-2 cursor-pointer"
