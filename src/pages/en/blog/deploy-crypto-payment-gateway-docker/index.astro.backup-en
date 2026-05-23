@@ -1,0 +1,264 @@
+---
+import Layout from '../../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="en"
+  noDefaultSchemas={true}
+  title="BTCPay Server vs Xcash: Which Self-Hosted Payment Gateway Fits Your Business? | Xcash"
+  description="BTCPay Server vs Xcash comparison — the two leading open-source self-hosted crypto payment gateways. Bitcoin-only shops should pick BTCPay. Multi-chain businesses need Xcash. Compare setup, features, supported chains, and costs."
+  canonical="https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xca.sh/en/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "BTCPay Server vs Xcash: Which Self-Hosted Payment Gateway Fits Your Business?" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "BTCPay Server vs Xcash: Which Self-Hosted Payment Gateway Fits Your Business?",
+      "description": "BTCPay Server and Xcash compared — setup difficulty, supported chains, fees, features. Bitcoin-only Lightning-heavy shops should pick BTCPay. Multi-chain and stablecoin businesses need Xcash.",
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" },
+      "inLanguage": "en"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; Home</span>
+        </a>
+        <a href="/en/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+        <a href="/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" class="text-sm text-text-secondary hover:text-primary transition-colors">中文</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">May 19, 2026</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            BTCPay Server vs Xcash: Which Self-Hosted Payment Gateway Fits Your Business?
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Comparison</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">BTCPay</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Self-Hosted</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            BTCPay Server has been the gold standard for self-hosted Bitcoin payments since 2017. But in 2026, payment demands go far beyond Bitcoin-only — stablecoins, multi-chain support, and smart contract payments are table stakes. Here's an honest comparison of BTCPay Server vs Xcash so you can pick the right one.
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<h2 class="text-xl font-semibold mt-8 mb-3">BTCPay Server: Eight Years of Bitcoin Excellence</h2>
+<p>
+Nicolas Dorier launched BTCPay Server in 2017 after Coinbase Commerce announced plans to charge 1% custody fees on Bitcoin payments. The community needed a truly decentralized alternative. BTCPay became the first self-hosted Bitcoin payment gateway that required no third party.
+</p>
+<p>
+Eight years later, BTCPay is still the most mature self-hosted solution for Bitcoin-only payment processing. Its Lightning Network integration — covering LND, CLN, and LNURL — is best-in-class. Payjoin, hardware wallet signing, BIP-70 payment protocol, custom greenfield API — almost every feature a Bitcoin maximalist could ask for is there.
+</p>
+<p>
+But the market shifted. Stablecoins now exceed $300 billion in market cap. Ethereum L2 daily active users have surpassed mainnet. Multi-chain payment support is no longer a nice-to-have — it's what customers expect. <strong>BTCPay's Bitcoin-only focus went from being its strength to its biggest limitation.</strong>
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Why Xcash Exists</h2>
+<p>
+Xcash was built on a simple premise: self-hosted payments shouldn't be limited to one chain. If your customers hold USDT on TRC-20 instead of BTC, BTCPay can't help you. If your e-commerce site runs on Polygon, BTCPay is equally useless.
+</p>
+<p>
+Xcash was designed from day one as a <strong>multi-chain payment gateway</strong> — Bitcoin + Ethereum + BSC + Polygon + Arbitrum + Optimism + 100+ EVM chains, with full USDT/USDC support on ERC-20, TRC-20, and BEP-20 networks. All coins share one API, one webhook system, and one admin dashboard.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Head-to-Head Comparison</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">Dimension</th>
+<th class="text-left p-3 border-b">BTCPay Server</th>
+<th class="text-left p-3 border-b">Xcash</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">First release</td><td class="p-3 border-b">2017</td><td class="p-3 border-b">2025</td></tr>
+<tr><td class="p-3 border-b font-medium">Chains supported</td><td class="p-3 border-b">Bitcoin only</td><td class="p-3 border-b">100+ EVM chains + Bitcoin</td></tr>
+<tr><td class="p-3 border-b font-medium">Stablecoins</td><td class="p-3 border-b">{'\\u274c'} No native support</td><td class="p-3 border-b">{'\\u2705'} USDT/USDC (ERC/TRC/BEP)</td></tr>
+<tr><td class="p-3 border-b font-medium">Deployment</td><td class="p-3 border-b">Docker + manual scripts + full node sync</td><td class="p-3 border-b">Single Docker Compose command</td></tr>
+<tr><td class="p-3 border-b font-medium">Setup time</td><td class="p-3 border-b">30-60 min initial + hours for node sync</td><td class="p-3 border-b">3 minutes</td></tr>
+<tr><td class="p-3 border-b font-medium">Platform fee</td><td class="p-3 border-b">Zero</td><td class="p-3 border-b">Zero</td></tr>
+<tr><td class="p-3 border-b font-medium">HD wallet</td><td class="p-3 border-b">{'\\u2705'} Bitcoin HD only</td><td class="p-3 border-b">{'\\u2705'} Cross-chain HD</td></tr>
+<tr><td class="p-3 border-b font-medium">Invoicing</td><td class="p-3 border-b">{'\\u2705'} BIP-70, Greenfield</td><td class="p-3 border-b">{'\\u2705'} REST API + Webhook</td></tr>
+<tr><td class="p-3 border-b font-medium">AML/risk scoring</td><td class="p-3 border-b">{'\\u274c'} None</td><td class="p-3 border-b">{'\\u2705'} MistTrack built-in</td></tr>
+<tr><td class="p-3 border-b font-medium">Deposit & withdrawal</td><td class="p-3 border-b">{'\\u274c'} Receive only</td><td class="p-3 border-b">{'\\u2705'} Send + receive</td></tr>
+<tr><td class="p-3 border-b font-medium">Backend</td><td class="p-3 border-b">C# (.NET Core)</td><td class="p-3 border-b">Python (Django + DRF)</td></tr>
+<tr><td class="p-3 border-b font-medium">LNURL / Lightning</td><td class="p-3 border-b">{'\\u2705'} Mature, best-in-class</td><td class="p-3 border-b">In development</td></tr>
+<tr><td class="p-3 border-b font-medium">Greenfield API</td><td class="p-3 border-b">{'\\u2705'}</td><td class="p-3 border-b">{'\\u2705'} REST API</td></tr>
+<tr><td class="p-3 border-b font-medium">Docker Compose</td><td class="p-3 border-b">Partial (manual config needed)</td><td class="p-3 border-b">{'\\u2705'} One command</td></tr>
+<tr><td class="p-3 border-b font-medium">Community</td><td class="p-3 border-b">Large (8 years)</td><td class="p-3 border-b">Growing</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Setup Difficulty: Day and Night</h2>
+<p>
+BTCPay Server's official deployment script has improved over the years, but it's still notorious for its complexity:
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># BTCPay — requires domain, SSL, manual env var configuration
+curl -o btcpay.sh https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/master/btcpay.sh
+# Edit env vars: BTCPAY_HOST, NBITCOIN_NETWORK, LETSENCRYPT_EMAIL
+./btcpay.sh --version "1.12.3"
+# First deploy + Bitcoin full node sync = hours to days</code></pre>
+<p>
+The real bottleneck: BTCPay depends on a full Bitcoin node. Docker Compose pulls Bitcoin Core — 600GB+ of blockchain data, 1-3 days of sync time on a typical VPS. You can use NBXplorer in lightweight mode, but for production environments, node sync is still a real first-time barrier.
+</p>
+<p>
+Xcash deployment:
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># Xcash — two commands, zero pre-configuration
+git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
+<p>
+Xcash doesn't require running a full node. It connects to blockchain via public nodes or your own RPC endpoints — no sync wait. If you already have Infura or Alchemy keys, plug them in. The default config works out of the box.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Feature Depth: Where Each Excels</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">BTCPay's Strengths</h3>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Lightning Network</strong> — BTCPay's LN integration is the best in the industry. Supports LND, CLN, and LNURL. If you need self-hosted Lightning payments with instant confirmation and near-zero fees, BTCPay is the only serious option</li>
+<li><strong>Payjoin</strong> — Native support for this Bitcoin privacy protocol that makes chain analysis harder</li>
+<li><strong>Hardware wallet signing</strong> — Sign transactions via USB or HSM without exposing private keys to the server</li>
+<li><strong>BIP-70 payment protocol</strong> — Required by some legacy POS systems and Bitcoin payment flows</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Xcash's Strengths</h3>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>100+ chains, one dashboard</strong> — Manage Bitcoin, Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, Fantom, and more from a single admin panel</li>
+<li><strong>Stablecoin support</strong> — Full USDT (ERC-20/TRC-20/BEP-20) and USDC coverage. If your customers are in Asia, Latin America, or Africa, they probably hold USDT — not BTC</li>
+<li><strong>Cross-chain HD wallet</strong> — Each customer gets a unique deposit address per transaction. Same HD derivation logic across all chains. No address reuse, no confusion</li>
+<li><strong>Built-in AML (MistTrack)</strong> — Suspicious transactions flagged automatically. Helps merchants stay compliant without third-party services</li>
+<li><strong>Full send + receive</strong> — Xcash handles both incoming payments and withdrawals to any chain address. Most payment gateways (BTCPay included) only handle receiving</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Who Should Choose BTCPay Server?</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li>Merchants who only accept Bitcoin</li>
+<li>Heavy Lightning Network users</li>
+<li>Bitcoin privacy enthusiasts (Payjoin, BIP-70, hardware wallets)</li>
+<li>Teams with ops bandwidth to configure and maintain infrastructure</li>
+<li>People already running a Bitcoin node</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Who Should Choose Xcash?</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li>E-commerce sellers who need to accept multiple cryptocurrencies</li>
+<li>Cross-border merchants whose customers primarily use USDT</li>
+<li>SMBs that want one system for all on-chain payment collection</li>
+<li>Developers who don't want to spend hours configuring infrastructure</li>
+<li>Merchants migrating from hosted gateways (CoinGate, OpenNode) to self-hosted</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Real-World Decision Guide</h2>
+
+<p><strong>Scenario A: Bitcoin-only cafe</strong></p>
+<p>You run a coffee shop in Berlin that accepts Bitcoin. All customers pay in BTC, some via Lightning. You're technical and don't mind running a node.</p>
+<p><strong>Choose BTCPay Server.</strong> Its Lightning integration and hardware wallet support are irreplaceable for your use case.</p>
+
+<p><strong>Scenario B: Cross-border e-commerce seller</strong></p>
+<p>You sell electronics accessories on Shopify. Customers are in Southeast Asia and Latin America. Most pay with USDT TRC-20, occasional BTC and ETH orders.</p>
+<p><strong>Choose Xcash.</strong> BTCPay doesn't support USDT TRC-20 — meaning you'd lose most of your customers. Xcash deploys in 3 minutes and handles all chains from one dashboard.</p>
+
+<p><strong>Scenario C: SaaS with global users</strong></p>
+<p>Your SaaS product has 2,000 paid users across 50 countries. They pay with ETH, MATIC, USDC, and BTC.</p>
+<p><strong>Choose Xcash.</strong> Multi-chain HD wallet + unified API + webhook integration means one codebase handles all currencies. BTCPay only processes the BTC portion — you'd need a separate solution for everything else.</p>
+
+<p><strong>Scenario D: Migrating from CoinGate</strong></p>
+<p>You've been using CoinGate, processing $20K/month. Want to move to self-hosted and save the 1% fee.</p>
+<p><strong>Choose Xcash.</strong> Fast deploy, REST API + webhook + dashboard workflow similar to CoinGate. Lowest migration cost. BTCPay migration would require rewriting your entire payment integration.</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Community and Ecosystem</h2>
+<p>
+BTCPay's community is among the strongest in open-source crypto — Mattermost chat, active GitHub discussions, dedicated contributors, and mature plugins for WooCommerce, Shopify, and Magento. If your use case is "Bitcoin + WooCommerce," BTCPay's plugin is the most battle-tested option.
+</p>
+<p>
+Xcash's community is younger but growing. The GitHub repo includes REST API docs, a Python SDK, and webhook examples. For SMBs that need multi-chain payment support out of the box, Xcash already covers ground that BTCPay's plugin ecosystem can't reach — because BTCPay plugins only extend Bitcoin functionality, while Xcash natively supports every EVM chain.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Bottom Line</h2>
+<p>
+BTCPay Server remains the gold standard for Bitcoin self-hosted payments. If you're a Bitcoin-only business that needs Lightning, privacy, and hardware wallet integration — BTCPay is still your best bet.
+</p>
+<p>
+But if you need <strong>multi-chain support, stablecoin payments, and fast deployment</strong> — which in 2026 are business necessities, not luxuries — Xcash is the stronger BTCPay Server alternative. It fills BTCPay's biggest gap: multi-chain support. While keeping what matters: zero platform fees, full private key control, and no KYC.
+</p>
+<p>
+Deploy Xcash in 3 minutes:
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
+<p>
+Or check out the project at <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a>.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">FAQ</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Does BTCPay Server support stablecoins?</h3>
+<p>
+Not natively. BTCPay is designed for Bitcoin. It doesn't support USDT, USDC, or other ERC-20 tokens. Community plugins attempt to add stablecoin support, but their reliability and security aren't guaranteed. If you need stablecoin payments, Xcash is the better self-hosted choice.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Does Xcash support Lightning Network?</h3>
+<p>
+Lightning Network support is on Xcash's roadmap and currently in development. If you need Bitcoin Lightning payments today, BTCPay Server is the go-to solution.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Can I run BTCPay Server and Xcash together?</h3>
+<p>
+Yes. They're not mutually exclusive. Many merchants run both — BTCPay for Bitcoin and Lightning payments, Xcash for EVM chains and stablecoins. Route payments to the appropriate gateway based on the customer's selected currency.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Which is easier to deploy?</h3>
+<p>
+Xcash — two commands, no full node required, no domain/SSL pre-configuration needed (just put it behind a reverse proxy). BTCPay's deployment is more involved: Bitcoin node sync, manual environment variables, domain and SSL binding. If your goal is to start accepting payments as fast as possible, Xcash has a significantly lower barrier to entry.
+</p>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">Related Posts</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/en/blog/why-self-hosted-payment-gateways-are-taking-over/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Industry Insight</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">Why Self-Hosted Crypto Payment Gateways Are Taking Over in 2026</h3>
+              </a>
+              <a href="/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Bitcoin · Tutorial</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">How to Accept Bitcoin Payments: Self-Hosted vs Hosted Gateway Comparison</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>

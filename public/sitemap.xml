@@ -95,7 +95,23 @@
     <loc>https://xca.sh/en/blog/how-to-accept-usdt-payments/</loc>
     <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/how-to-accept-usdt-payments/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/how-to-accept-usdt-payments/" />
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/blog/deploy-crypto-payment-gateway-docker/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/deploy-crypto-payment-gateway-docker/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/deploy-crypto-payment-gateway-docker/" />
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/en/blog/deploy-crypto-payment-gateway-docker/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/deploy-crypto-payment-gateway-docker/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/deploy-crypto-payment-gateway-docker/" />
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

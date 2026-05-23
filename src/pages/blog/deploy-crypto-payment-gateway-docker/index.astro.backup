@@ -1,0 +1,263 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="zh-CN"
+  noDefaultSchemas={true}
+  title="BTCPay Server vs Xcash：哪个自托管支付网关更适合你？ | Xcash"
+  description="BTCPay Server 和 Xcash 都是优秀的开源自托管支付网关，但适用场景完全不同。比特币专场选 BTCPay，多链支付选 Xcash——本文从部署难度、支持的链、费用、功能逐项对比。"
+  canonical="https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://xca.sh/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "BTCPay Server vs Xcash：哪个自托管支付网关更适合你？" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "BTCPay Server vs Xcash：哪个自托管支付网关更适合你？",
+      "description": "BTCPay Server 和 Xcash 都是自托管支付网关，但适用场景完全不同。比特币专场选 BTCPay，多链支付选 Xcash——从部署难度、支持的链、费用、功能逐项对比。",
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" },
+      "inLanguage": "zh-CN"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; 首页</span>
+        </a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">博客</a>
+        <a href="/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" class="text-sm text-text-secondary hover:text-primary transition-colors">English</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">2026 年 5 月 19 日</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            BTCPay Server vs Xcash：哪个自托管支付网关更适合你的生意？
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">对比</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">BTCPay</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">自托管</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            BTCPay Server 是比特币生态最知名的自托管支付网关。但 2026 年的支付需求已经远远超出 Bitcoin-Only 的范围——稳定币、多链、智能合约支付才是主流。Xcash 和 BTCPay 分别适合什么样的商家？看完这篇对比你就知道怎么选了。
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<h2 class="text-xl font-semibold mt-8 mb-3">BTCPay Server 辉煌的八年</h2>
+<p>
+2017 年，Nicolas Dorier 创建了 BTCPay Server，起因是 Coinbase Commerce 计划对比特币支付加收 1% 的托管费。社区需要一个真正去中心化的替代方案。BTCPay 应运而生，成为开源世界中第一个无需第三方的比特币支付网关。
+</p>
+<p>
+八年后的今天，BTCPay 仍然是 Bitcoin-Only 场景下最成熟的自托管方案。它在比特币社区的地位无可争议——LNURL 支持、payjoin、硬件钱包集成、自定义绿地址，几乎所有比特币原教旨主义者需要的功能它都有。
+</p>
+<p>
+但市场变了。2026 年的加密支付不再是比特币独大的局面。稳定币市值突破 3000 亿美元，以太坊 L2 日活超过主网，多链支付成为刚需。<strong>BTCPay 的比特币专一性从优势变成了局限。</strong>
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Xcash 为什么存在</h2>
+<p>
+Xcash 立项时的判断很简单：自托管支付不应该局限于一条链。如果你的客户持有 USDT（TRC-20）而不是 BTC，BTCPay 帮不了你。如果你的电商网站部署在 Polygon 上，BTCPay 同样无能为力。
+</p>
+<p>
+Xcash 从一开始就设计为<strong>多链支付网关</strong>——比特币 + 以太坊 + BSC + Polygon + Arbitrum + Optimism + 100+ EVM 链，以及 USDT/USDC 在 ERC-20、TRC-20、BEP-20 三个网络上的全面支持。所有币种共用一套 API，一套 Webhook，一个后台管理面板。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">核心对比：一张表看明白</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">对比维度</th>
+<th class="text-left p-3 border-b">BTCPay Server</th>
+<th class="text-left p-3 border-b">Xcash</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">首次发布</td><td class="p-3 border-b">2017</td><td class="p-3 border-b">2025</td></tr>
+<tr><td class="p-3 border-b font-medium">支持的链</td><td class="p-3 border-b">仅比特币</td><td class="p-3 border-b">100+ EVM 链 + 比特币</td></tr>
+<tr><td class="p-3 border-b font-medium">稳定币</td><td class="p-3 border-b">{'\\u274c'} 无原生支持</td><td class="p-3 border-b">{'\\u2705'} USDT/USDC (ERC/TRC/BEP)</td></tr>
+<tr><td class="p-3 border-b font-medium">部署方式</td><td class="p-3 border-b">Docker / 手动脚本</td><td class="p-3 border-b">Docker Compose（单命令）</td></tr>
+<tr><td class="p-3 border-b font-medium">部署时间</td><td class="p-3 border-b">30-60 分钟（首次）</td><td class="p-3 border-b">3 分钟</td></tr>
+<tr><td class="p-3 border-b font-medium">平台费</td><td class="p-3 border-b">零</td><td class="p-3 border-b">零</td></tr>
+<tr><td class="p-3 border-b font-medium">HD 钱包</td><td class="p-3 border-b">{'\\u2705'} 比特币 HD</td><td class="p-3 border-b">{'\\u2705'} 所有链 HD</td></tr>
+<tr><td class="p-3 border-b font-medium">发票/收据</td><td class="p-3 border-b">{'\\u2705'} BIP-70 等</td><td class="p-3 border-b">{'\\u2705'} REST API + Webhook</td></tr>
+<tr><td class="p-3 border-b font-medium">风控 (AML)</td><td class="p-3 border-b">{'\\u274c'} 无</td><td class="p-3 border-b">{'\\u2705'} MistTrack 内置</td></tr>
+<tr><td class="p-3 border-b font-medium">充提币功能</td><td class="p-3 border-b">{'\\u274c'} 仅收不支</td><td class="p-3 border-b">{'\\u2705'} 收 + 提现到任意地址</td></tr>
+<tr><td class="p-3 border-b font-medium">后端语言</td><td class="p-3 border-b">C# (.NET Core)</td><td class="p-3 border-b">Python (Django + DRF)</td></tr>
+<tr><td class="p-3 border-b font-medium">LNURL/Lightning</td><td class="p-3 border-b">{'\\u2705'} 成熟支持</td><td class="p-3 border-b">开发中</td></tr>
+<tr><td class="p-3 border-b font-medium">Greenfield API</td><td class="p-3 border-b">{'\\u2705'}</td><td class="p-3 border-b">{'\\u2705'} REST API</td></tr>
+<tr><td class="p-3 border-b font-medium">Docker Compose</td><td class="p-3 border-b">部分（需手动配置）</td><td class="p-3 border-b">{'\\u2705'} 一键启动</td></tr>
+<tr><td class="p-3 border-b font-medium">社区规模</td><td class="p-3 border-b">大（8 年积累）</td><td class="p-3 border-b">成长中</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">部署难度对比</h2>
+<p>
+BTCPay Server 的官方部署脚本经过了多次迭代，但仍然是出了名的复杂：
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># BTCPay — 需要域名、SSL 证书、手动配置环境变量
+curl -o btcpay.sh https://raw.githubusercontent.com/btcpayserver/btcpayserver-docker/master/btcpay.sh
+# 编辑环境变量：BTCPAY_HOST、NBITCOIN_NETWORK、LETSENCRYPT_EMAIL
+./btcpay.sh --version "1.12.3"
+# 首次部署 + 比特币节点同步 = 数小时</code></pre>
+<p>
+问题在于 BTCPay 依赖完整的比特币节点。如果你没有现成的节点，Docker Compose 会拉取一个完整的 Bitcoin Core——数据量 600GB+，同步时间 1-3 天。有些人选择用 NBXplorer 的轻量模式，但对生产环境来说，节点同步时间仍是一个实际门槛。
+</p>
+<p>
+Xcash 的部署完全不同：
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code># Xcash——两条命令，不需要提前配置
+git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
+<p>
+Xcash 不要求运行全节点。默认通过公共节点或你自己配置的 RPC 端点连接区块链，这意味着不需要等待同步。如果你已经有 Infura 或 Alchemy 的 API key，可以直接配置进去。如果没有，默认配置也足够起步。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">功能深度对比</h2>
+<h3 class="text-lg font-semibold mt-6 mb-2">BTCPay 的强项</h3>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Lightning Network</strong>——BTCPay 对 LN 的集成是行业最佳。LNURL、LND、CLN 三种后端都支持，可以自托管闪电节点。对于需要低费率、即时确认的比特币支付场景，BTCPay 是唯一选择</li>
+<li><strong>Payjoin</strong>——增强比特币隐私的支付协议，BTCPay 原生支持</li>
+<li><strong>硬件钱包集成</strong>——通过 USB 或 HSM 直接签名交易，不用把私钥暴露给服务器</li>
+<li><strong>BIP-70 等支付协议</strong>——传统比特币支付标准，部分 POS 系统要求</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Xcash 的强项</h3>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>100+ 链统一管理</strong>——一个后台面板管理比特币、以太坊、BSC、Polygon、Arbitrum、Optimism、Avalanche、Fantom 等所有链</li>
+<li><strong>稳定币支付</strong>——USDT (ERC-20/TRC-20/BEP-20) 和 USDC 完整支持。如果你的客户群体在亚洲、拉美或非洲，他们大概率持有 USDT 而不是 BTC</li>
+<li><strong>HD 钱包跨链</strong>——每个客户每次交易生成唯一收款地址，所有链共用一套 HD 派生逻辑。客户从不出错，你也不用担心地址重复</li>
+<li><strong>内置风控（MistTrack）</strong>——可疑交易自动标记，帮你规避洗钱风险</li>
+<li><strong>充提币功能</strong>——不只能收款，还能提现到任意链上地址。大部分支付网关（包括 BTCPay）只管收，不管出</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">BTCPay 适合谁？</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li>只接受比特币的商家</li>
+<li>重度 Lightning Network 用户</li>
+<li>在乎比特币隐私协议（Payjoin、BIP-70）的极客</li>
+<li>愿意花一天配置和调试服务器的运维人员</li>
+<li>已经在运行比特币节点的用户</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Xcash 适合谁？</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li>需要接受多种加密货币的电商卖家</li>
+<li>客户群以 USDT 用户为主的跨境商家</li>
+<li>想用一套系统管理所有链上收款的中小企业</li>
+<li>不希望花几小时配置/管理/运维的开发者</li>
+<li>正在从 CoinGate / OpenNode 迁移到自托管的商家</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">实际场景选择指南</h2>
+
+<p><strong>场景 A：独立比特币极客</strong></p>
+<p>你在北美经营一家接受比特币支付的咖啡馆。所有客户都用 BTC 付款，有些走 Lightning。你有技术背景，不介意运行节点。</p>
+<p><strong>选 BTCPay Server。</strong>它的 Lightning 集成和硬件钱包支持对你的场景是不可替代的。</p>
+
+<p><strong>场景 B：亚洲跨境电商</strong></p>
+<p>你在 Shopify 上卖电子配件，客户来自东南亚和拉美。大部分人用 USDT TRC-20 付款，偶尔有 BTC 和 ETH 的订单。</p>
+<p><strong>选 Xcash。</strong>BTCPay 不支持 USDT TRC-20——这意味着你会直接流失大部分客户。Xcash 三分钟部署，一个面板管所有链。</p>
+
+<p><strong>场景 C：SaaS 产品全球收款</strong></p>
+<p>你的 SaaS 产品有 2000 个付费用户，分布在全球 50 个国家。他们用 ETH、MATIC、USDC、BTC 各种方式付款。</p>
+<p><strong>选 Xcash。</strong>多链 HD 钱包 + 统一 API + Webhook 集成意味着你一套代码就能接入所有币种。BTCPay 只能处理 BTC 部分，其他币种你得另找方案。</p>
+
+<p><strong>场景 D：从托管迁移到自托管</strong></p>
+<p>你一直在用 CoinGate，月流水 2 万美元。想迁移到自托管省下 1% 的费用。</p>
+<p><strong>选 Xcash。</strong>部署快，AP 习惯和 CoinGate 类似（REST API + Webhook + Dashboard），迁移成本最低。BTCPay 的迁移需要重构整套支付流程。</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">社区和生态</h2>
+<p>
+BTCPay 有 8 年的社区积累——Mattermost 聊天室、GitHub 讨论、活跃的开发者贡献者、大量的集成插件（WooCommerce、Shopify、Magento 等）。如果你的需求恰好是"比特币 + WooCommerce"，BTCPay 的插件是最成熟的。
+</p>
+<p>
+Xcash 的社区还在成长。目前有 GitHub 仓库和文档网站，集成示例包括 REST API 调用、Python SDK、Webhook 回调。对于需要开箱即用的多链支付方案的中小企业来说，Xcash 的功能深度已经超过了 BTCPay 的插件生态能覆盖的范围——因为 BTCPay 的插件只拓展比特币功能，而 Xcash 原生支持多链。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">总结</h2>
+<p>
+BTCPay Server 是比特币自托管支付的标杆。如果你只做比特币生意、需要 Lightning、重视隐私协议——BTCPay 仍然是最佳选择。
+</p>
+<p>
+但如果你需要<strong>多链支付、稳定币支持、快速部署</strong>——这些在 2026 年已经成为商业刚需——Xcash 是更合适的 BTCPay Server 替代方案。它补上了 BTCPay 最大的短板：多链支持。同时保留了自托管的核心优势：零平台费、私钥自主、无需 KYC。
+</p>
+<p>
+开始使用 Xcash：
+</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>git clone https://github.com/xca-sh/xcash.git
+cd xcash && ./scripts/init_env.sh && docker compose up -d</code></pre>
+<p>
+或访问 <a href="https://xca.sh" class="text-primary hover:underline">xca.sh</a> 了解更多。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">常见问题</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">BTCPay Server 支持稳定币吗？</h3>
+<p>
+原生不支持。BTCPay 是为比特币设计的，不支持 USDT、USDC 或其他 ERC-20 代币。社区有一些第三方插件试图集成稳定币，但可靠性和安全性无法保证。如果你需要稳定币支付，Xcash 是更好的自托管选择。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Xcash 支持 Lightning Network 吗？</h3>
+<p>
+目前 Xcash 的 LN 支持正在开发中。如果需要比特币闪电支付，BTCPay 是当前的最佳选择。Xcash 的路线图已经将 Lightning 集成列为优先事项。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Xcash 和 BTCPay 可以同时用吗？</h3>
+<p>
+可以。两个方案不冲突。不少商家同时运行 BTCPay（处理比特币和 Lightning 支付）和 Xcash（处理 EVM 链和稳定币支付）。共用一套收款页面，背后路由到不同的网关。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">哪个方案部署更简单？</h3>
+<p>
+Xcash 更简单——两条命令、不需要运行全节点、不需要配置域名和 SSL（反向代理后面挂即可）。BTCPay 的部署复杂度更高，需要比特币节点同步、环境变量配置、域名和 SSL 绑定等步骤。如果目标是尽快上线接受付款，Xcash 的门槛明显更低。
+</p>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">相关阅读</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/blog/why-self-hosted-payment-gateways-are-taking-over/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">行业洞察</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">为什么自托管加密货币支付网关是 2026 年的大趋势</h3>
+              </a>
+              <a href="/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">比特币 · 教程</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">如何接受比特币付款？自托管 vs 托管方案全面对比</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>
