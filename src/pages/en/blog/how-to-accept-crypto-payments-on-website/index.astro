@@ -1,0 +1,257 @@
+---
+import Layout from '../../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="en"
+  noDefaultSchemas={true}
+  title="How to Accept Crypto Payments on Your Website in 2026 | Xcash"
+  description="A complete guide to accepting cryptocurrency payments on your website in 2026. Compare hosted vs self-hosted payment gateways, learn API integration for Bitcoin, USDT, and 100+ chains."
+  canonical="https://xca.sh/en/blog/how-to-accept-crypto-payments-on-website/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xca.sh/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xca.sh/en/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Accept Crypto Payments on Your Website" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Accept Crypto Payments on Your Website in 2026",
+      "description": "A complete step-by-step guide to integrating cryptocurrency payments into your website. Compare hosted vs self-hosted gateways, learn API integration, and go live.",
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/en/blog/how-to-accept-crypto-payments-on-website/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/en/blog/how-to-accept-crypto-payments-on-website/" },
+      "inLanguage": "en"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/en/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; Home</span>
+        </a>
+        <a href="/en/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+        <a href="/blog/how-to-accept-crypto-payments-on-website/" class="text-sm text-text-secondary hover:text-primary transition-colors">中文</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">May 25, 2026</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            How to Accept Crypto Payments on Your Website in 2026
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Tutorial</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">API</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Payments</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            A May 2026 industry report says crypto rails are becoming the default payment layer for AI agents and automated systems. When machines start paying each other programmatically, your website needs to be on those rails. This guide covers everything from choosing your approach to writing the code — a complete walkthrough for integrating cryptocurrency payments into your website.
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<h2 class="text-xl font-semibold mt-8 mb-3">Crypto payments are not a niche experiment anymore</h2>
+<p>
+Three data points. The stablecoin market cap crossed $350 billion in May 2026 — nearly tripling in two years. United Wholesale Mortgage, the second-largest US mortgage lender, announced it will accept crypto for loan payments by end of year. Mastercard now gives merchants the option to settle in crypto. This isn't "coming soon." It's here.
+</p>
+<p>
+For any online business, accepting crypto payments is moving from "should we?" to "how do we?" Your customers — especially in cross-border and freelancer scenarios — hold USDT, USDC, and BTC and want to spend it. If your checkout only does PayPal and credit cards, you're filtering out a whole segment of paying users who don't route through the banking system.
+</p>
+<p>
+The good news: adding crypto payments to a website in 2026 is dramatically simpler than it was three years ago. You don't need to write a blockchain indexer, run full nodes, or wrestle with RPC endpoints across a dozen chains. You pick the right approach, integrate an API, and let the payment gateway handle the rest.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Three approaches: pick the one that fits</h2>
+<p>
+There are three ways to let your website accept cryptocurrency. They differ fundamentally in who holds the keys and what it costs over time. Start with the table, then we'll unpack each one.
+</p>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">Approach</th>
+<th class="text-left p-3 border-b">Hosted Gateway</th>
+<th class="text-left p-3 border-b">Self-Hosted Gateway</th>
+<th class="text-left p-3 border-b">Raw Wallet Address</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">Examples</td><td class="p-3 border-b">CoinGate, OpenNode, Coinbase Commerce</td><td class="p-3 border-b">Xcash, BTCPay Server</td><td class="p-3 border-b">MetaMask / exchange deposit address</td></tr>
+<tr><td class="p-3 border-b font-medium">Key control</td><td class="p-3 border-b">{'\u274c'} Platform holds keys</td><td class="p-3 border-b">{'\u2705'} You hold keys</td><td class="p-3 border-b">{'\u2705'} You hold keys</td></tr>
+<tr><td class="p-3 border-b font-medium">Platform fees</td><td class="p-3 border-b">1% per transaction</td><td class="p-3 border-b">Zero (only on-chain gas)</td><td class="p-3 border-b">Zero (only on-chain gas)</td></tr>
+<tr><td class="p-3 border-b font-medium">Integration effort</td><td class="p-3 border-b">Medium (API only)</td><td class="p-3 border-b">Medium (deploy + API)</td><td class="p-3 border-b">Low (copy-paste address)</td></tr>
+<tr><td class="p-3 border-b font-medium">Auto payment confirmation</td><td class="p-3 border-b">{'\u2705'} Built-in webhooks</td><td class="p-3 border-b">{'\u2705'} Built-in webhooks</td><td class="p-3 border-b">{'\u274c'} Must monitor chain yourself</td></tr>
+<tr><td class="p-3 border-b font-medium">KYC required</td><td class="p-3 border-b">Mandatory KYC</td><td class="p-3 border-b">{'\u274c'} None required</td><td class="p-3 border-b">{'\u274c'} None required</td></tr>
+<tr><td class="p-3 border-b font-medium">Freeze risk</td><td class="p-3 border-b">Platform can freeze funds</td><td class="p-3 border-b">{'\u274c'} Full control</td><td class="p-3 border-b">{'\u274c'} Full control</td></tr>
+<tr><td class="p-3 border-b font-medium">Chain support</td><td class="p-3 border-b">10-30 chains</td><td class="p-3 border-b">100+ EVM + Bitcoin</td><td class="p-3 border-b">Whatever address you paste</td></tr>
+<tr><td class="p-3 border-b font-medium">$50k/mo volume, annual cost</td><td class="p-3 border-b">~$6,000</td><td class="p-3 border-b">~$240 (VPS cost)</td><td class="p-3 border-b">$0 (but manual labor costs)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Approach 1: Hosted gateways. Easy now, expensive later</h2>
+<p>
+CoinGate, OpenNode, and Coinbase Commerce are sign-up-and-go services. You create an account, pass KYC, grab an API key, write a few lines of code — and customers can pay with crypto. The platform handles exchange rates, on-chain confirmations, and settlement to your bank or wallet.
+</p>
+<p>
+The tradeoff: 1% per transaction. Doesn't sound like much, but at $50,000 monthly volume that's $6,000 a year. Before factoring in spread on exchange rates. And here's the bigger issue — <strong>the money isn't yours until they send it to you.</strong> Funds hit the platform's custodial wallet first, then settle to you. If the platform freezes your account due to compliance reviews — Coinbase Commerce and OpenNode have both done this — you can't do anything. They hold the private keys.
+</p>
+<p>
+Good for: early-stage operations with minimal volume where short-term convenience beats long-term cost. Bad for: anyone doing five figures a month, anyone in cross-border payments, anyone who needs absolute control over their funds.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Approach 2: Self-hosted gateways. One extra step, zero fees forever</h2>
+<p>
+This is where <a href="https://xca.sh" class="text-primary hover:underline">Xcash</a> and BTCPay Server live. You run the payment gateway on your own server. You hold the private keys. Every API endpoint is yours to call. No platform takes a cut. No KYC application. No approval queue. Customer crypto goes directly into your wallet.
+</p>
+<p>
+Deployment cost: a 1-core, 2 GB VPS at ~$20/month. See our <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">Docker deployment guide</a> — three minutes, three commands. About the same as installing WordPress. Xcash doesn't require a full node. No 600 GB disk sync.
+</p>
+<p>
+Once deployed, your website talks to the gateway through a REST API. Create invoices, check payment status, configure webhooks, generate deposit addresses — all standard JSON. We'll walk through the integration next.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Approach 3: Pasting a wallet address. Simple, until it's not</h2>
+<p>
+Just put your USDT or Bitcoin address on the checkout page and ask customers to send funds. No middleman, no API, no code. Sounds Web3-native.
+</p>
+<p>
+But real operations break this model fast. A customer pays — you don't know unless you manually check the block explorer and update the order status yourself. They send 0.001 USDT short — the chain won't flag "amount mismatch," you have to catch it. Accept 5 coins across 10 chains and address management becomes a full-time job. No webhooks means your backend never knows funds arrived, so fulfillment stays manual.
+</p>
+<p>
+Pasting an address works for "accept a tip once in a while" — a blog donation button, an open-source sponsor link. It does not work for any business that needs automation.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Integration: wiring crypto payments into your website with the Xcash API</h2>
+<p>
+Assume you've deployed Xcash following the <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">deployment guide</a> and it's running at <code>https://pay.yourdomain.com</code>. Here are the four steps to accept crypto from your website.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 1: Create an API token</h3>
+<p>
+Log into the admin panel, navigate to API Tokens, and create one. Save it — this authenticates every API call.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 2: Create an invoice at checkout</h3>
+<p>
+When a customer clicks "Pay with crypto," your backend sends a POST to Xcash to create an invoice. Put the payload in a JSON file to keep the curl readable:</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>curl -X POST https://pay.yourdomain.com/api/v1/invoices/ \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d @invoice_payload.json</code></pre>
+<p>
+The <code>invoice_payload.json</code> includes amount, currency, chain, order ID, and callback URL fields. The response JSON contains a <code>payment_url</code> — the link your customer uses to pay.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 3: Present the payment page</h3>
+<p>
+Three ways to show the payment page to your customer:
+</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Redirect mode:</strong> A button on checkout that sends them to <code>payment_url</code>. They pick a chain, pick a wallet, pay, and get redirected back to your <code>redirect_url</code>. Simplest option. Works great on mobile</li>
+<li><strong>Embedded iframe:</strong> Load <code>payment_url</code> in an iframe inside your checkout page. Customer never leaves your site. Good for desktop</li>
+<li><strong>Headless API mode:</strong> Build your own frontend UI. Fetch addresses and payment status via API, render everything custom. For sites with strong brand requirements</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 4: Set up webhooks for automatic confirmation</h3>
+<p>
+After the customer pays, Xcash notifies your backend through a webhook. Configure a webhook URL in the admin panel — e.g., <code>https://yourdomain.com/api/payment-webhook/</code>. When payment is confirmed, Xcash POSTs a JSON payload with the order ID, transaction hash, and confirmation count. Your backend updates the order status, triggers fulfillment, and sends the confirmation email.
+</p>
+<p>Full API docs at <a href="https://docs.xca.sh" class="text-primary hover:underline">docs.xca.sh</a>.</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Handling exchange rate volatility</h2>
+<p>
+One unavoidable reality: crypto prices move. A customer orders when BTC is $74,800 and by the time their transaction confirms it's $74,200 or $75,200. How do you handle it?
+</p>
+<p>
+Two strategies, pick one:
+</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Lock the fiat amount:</strong> At checkout, lock $100 = 0.00134 BTC (at current rate). The customer must pay within a time window — usually 15-30 minutes. You receive a fixed BTC amount and bear the exchange rate risk</li>
+<li><strong>Lock the crypto amount:</strong> Display "Pay 0.00134 BTC" at checkout without pegging to fiat. Customer can pay anytime, but the fiat value you receive fluctuates. Customer bears the risk</li>
+</ul>
+<p>
+For most e-commerce, locking the fiat amount with a 15-minute window is the practical choice. Xcash's API supports both — set the <code>amount_currency</code> parameter when creating the invoice.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Security checklist</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Keep API tokens server-side.</strong> Never put API tokens in frontend code or commit them to git. Invoice creation must originate from your backend</li>
+<li><strong>Validate webhook signatures.</strong> Verify the signature in incoming webhook request headers. Prevents forged callbacks</li>
+<li><strong>Use HD wallet derived addresses.</strong> Generate a unique deposit address per transaction. Improves privacy and makes reconciliation easy. Xcash handles this automatically with its built-in HD wallet</li>
+<li><strong>Test with small amounts first.</strong> Before going live, run a $1 payment through the full flow. Confirm webhooks fire, order status updates, and fulfillment triggers correctly</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">What kind of businesses benefit most from crypto payments</h2>
+<p>Not every business needs this. The biggest wins come in these scenarios:</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Cross-border services / freelancing:</strong> Clients in LATAM, Southeast Asia, Africa may not have international credit cards but definitely have USDT. Crypto bypasses the banking system entirely — fast settlement, low cost</li>
+<li><strong>SaaS / subscriptions:</strong> Add crypto as an option on your pricing page. Stripe won't penalize you for offering alternatives</li>
+<li><strong>Digital goods / memberships:</strong> API keys, ebooks, online courses — no shipping needed, so automated delivery on payment confirmation is straightforward</li>
+<li><strong>VPNs / hosting / privacy services:</strong> Your users already value privacy and self-hosting. Crypto is a natural fit</li>
+<li><strong>GameFi / blockchain gaming:</strong> Users are already crypto-native. Let them pay with the tokens they already hold</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">FAQ</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Do I need a license to accept crypto payments on my website?</h3>
+<p>
+Depends on your jurisdiction. Most countries do not currently require merchants receiving crypto to hold a license — as long as you aren't holding customer funds in custody. That's one advantage of self-hosted payment gateways: the keys are yours, you're just receiving your own payments. Consult a local lawyer to confirm. For AML, Xcash integrates MistTrack risk screening to flag suspicious addresses.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Is a self-hosted gateway as reliable as a hosted one?</h3>
+<p>
+A self-hosted gateway's reliability depends on your server. A Ubuntu 22.04 VPS running Docker Compose can go months without issues — that's the norm. Hosted gateways also run on servers; the difference is when something breaks, you can fix your own. With a hosted gateway, you wait.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Can my website accept both fiat and crypto?</h3>
+<p>
+Absolutely. A crypto payment gateway is an independent layer — you still run Stripe or PayPal for fiat. Add a "Pay with crypto" option at checkout and route the two payment paths separately in your backend. Xcash's API is designed to slot into existing payment systems.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">What if my customers don't use crypto?</h3>
+<p>
+Ask yourself: do they not use crypto, or have they never had the option? The numbers tell the story — stablecoin monthly active addresses exceeded 30 million in Q1 2026. Crypto payments aren't a replacement for fiat. They're an additional option. More payment options don't lower conversion rates — they raise them.
+</p>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">Related Posts</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Tutorial · Docker</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">Deploy a Crypto Payment Gateway in 3 Minutes with Docker</h3>
+              </a>
+              <a href="/en/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Bitcoin · Comparison</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">How to Accept Bitcoin Payments: Self-Hosted vs Hosted Gateways</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>

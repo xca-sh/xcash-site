@@ -1,0 +1,257 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="zh-CN"
+  noDefaultSchemas={true}
+  title="2026年网站接受加密货币付款完整指南 | Xcash"
+  description="从选择方案到上线收款——2026年网站接受加密货币付款的完整实战指南。对比托管与自托管支付网关，手把手教你用 API 集成比特币、USDT、100+ 链的加密货币收款。"
+  canonical="https://xca.sh/blog/how-to-accept-crypto-payments-on-website/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://xca.sh/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "网站接受加密货币付款完整指南" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "2026年网站接受加密货币付款完整指南",
+      "description": "从选择方案到上线收款——2026年网站接受加密货币付款的完整实战指南。对比托管与自托管支付网关，手把手教你用 API 集成加密货币收款。",
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/blog/how-to-accept-crypto-payments-on-website/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/blog/how-to-accept-crypto-payments-on-website/" },
+      "inLanguage": "zh-CN"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; 首页</span>
+        </a>
+        <a href="/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">博客</a>
+        <a href="/en/blog/how-to-accept-crypto-payments-on-website/" class="text-sm text-text-secondary hover:text-primary transition-colors">English</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">2026 年 5 月 25 日</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            2026 年网站接受加密货币付款完整指南
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">教程</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">API集成</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">收款</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            2026 年 5 月的一份行业报告指出，加密货币支付轨道正在成为 AI 代理和自动化系统的默认交易层。当机器开始自动付款时，你的网站如果还不能收加密货币，就是在拒绝一个正在成型的新支付体系。这篇指南从方案选择到代码上线，覆盖网站集成加密货币收款的全部流程。
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<h2 class="text-xl font-semibold mt-8 mb-3">加密货币支付不再是极客玩具</h2>
+<p>
+先看三个数据点。稳定币市值在 2026 年 5 月突破 3500 亿美元——两年翻了接近三倍。美国第二大抵押贷款机构 United Wholesale Mortgage 宣布今年底接受加密货币还贷。Mastercard 给了商户直接用卡收加密货币的选项。不是未来，是现在。
+</p>
+<p>
+对于在线业务来说，接受加密货币付款已经不是一个"要不要"的问题，而是"怎么接"的问题。你的客户——尤其是跨境付款和自由职业场景——手里有 USDT、USDC、BTC，他们想花出去。如果你的网站只接 PayPal 和信用卡，你就在过滤掉一批不经过银行体系的付费用户。
+</p>
+<p>
+好消息是，2026 年往网站里加加密货币收款的技术门槛比三年前低了太多。不需要自己写区块链索引、不需要维护全节点、不需要跟几十条链的 RPC 打交道。你只需要选对方案，接一套 API，剩下的交给支付网关。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">三种方案：选对你需要的</h2>
+<p>
+目前让网站接受加密货币付款，有三条路。每条路的"谁管钱"和"花多少钱"完全不同，选错成本很高。先看表，再解释每一种：
+</p>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">方案</th>
+<th class="text-left p-3 border-b">托管支付网关</th>
+<th class="text-left p-3 border-b">自托管支付网关</th>
+<th class="text-left p-3 border-b">直接钱包地址</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">代表</td><td class="p-3 border-b">CoinGate, OpenNode, Coinbase Commerce</td><td class="p-3 border-b">Xcash, BTCPay Server</td><td class="p-3 border-b">MetaMask / 交易所地址</td></tr>
+<tr><td class="p-3 border-b font-medium">私钥控制权</td><td class="p-3 border-b">{'\u274c'} 平台持有</td><td class="p-3 border-b">{'\u2705'} 你持有</td><td class="p-3 border-b">{'\u2705'} 你持有</td></tr>
+<tr><td class="p-3 border-b font-medium">平台费用</td><td class="p-3 border-b">1% 每笔交易</td><td class="p-3 border-b">零（仅链上 gas）</td><td class="p-3 border-b">零（仅链上 gas）</td></tr>
+<tr><td class="p-3 border-b font-medium">集成难度</td><td class="p-3 border-b">中（API 对接）</td><td class="p-3 border-b">中（需部署 + API）</td><td class="p-3 border-b">低（复制地址）</td></tr>
+<tr><td class="p-3 border-b font-medium">自动化支付确认</td><td class="p-3 border-b">{'\u2705'} 内置 Webhook</td><td class="p-3 border-b">{'\u2705'} 内置 Webhook</td><td class="p-3 border-b">{'\u274c'} 需要自己监听链上</td></tr>
+<tr><td class="p-3 border-b font-medium">KYC 要求</td><td class="p-3 border-b">强制 KYC</td><td class="p-3 border-b">{'\u274c'} 不需要</td><td class="p-3 border-b">{'\u274c'} 不需要</td></tr>
+<tr><td class="p-3 border-b font-medium">资金冻结风险</td><td class="p-3 border-b">平台可冻结</td><td class="p-3 border-b">{'\u274c'} 你完全控制</td><td class="p-3 border-b">{'\u274c'} 你完全控制</td></tr>
+<tr><td class="p-3 border-b font-medium">支持的链</td><td class="p-3 border-b">10-30 条</td><td class="p-3 border-b">100+ EVM + 比特币</td><td class="p-3 border-b">取决于你贴哪个地址</td></tr>
+<tr><td class="p-3 border-b font-medium">月流水 5 万刀，年费</td><td class="p-3 border-b">~$6000</td><td class="p-3 border-b">~$240（VPS 费）</td><td class="p-3 border-b">$0（但手动管理成本高）</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">方案一：托管支付网关。省事，但不省钱</h2>
+<p>
+CoinGate、OpenNode、Coinbase Commerce 这些是"注册即用"的托管服务。你注册账号、通过 KYC、拿到 API key、几行代码嵌进去——客户用加密货币付款，平台帮你处理汇率转换、链上确认、结算到你的法币或加密货币账户。
+</p>
+<p>
+代价是 1% 的手续费。看起来不多——但月流水 5 万美元的话，一年是 6000 美元。这还没算汇率差价。更关键的是，<strong>钱不是你的</strong>。资金先进平台的托管钱包，再结算给你。如果平台因为合规审查冻结你的账户——这种事 Coinbase Commerce 和 OpenNode 都发生过——你没办法。私钥在他们手上。
+</p>
+<p>
+适合：刚起步、流水很小、不在乎长期费用的场景。不适合：月流水上万的业务，或者做跨境支付、对资金控制有刚需的场景。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">方案二：自托管支付网关。多一步部署，省一辈子费用</h2>
+<p>
+这就是 Xcash 和 BTCPay Server 的位置——你把支付网关部署在自己的服务器上，把私钥拿在自己手里，所有 API 归你调度。没有平台抽成、没有 KYC 申请、没有审批流程。客户的加密货币直接进你的钱包。
+</p>
+<p>
+部署成本：一台 1 核 2GB 的 VPS，月费 ~$20。详细部署流程见我们的 <a href="/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">Docker 部署教程</a>——三分钟、三条命令，和装一个 WordPress 差不多。Xcash 不需要全节点，不需要 600GB 磁盘同步。
+</p>
+<p>
+部署之后，你的网站通过一套 REST API 和网关交互。创建发票、查询支付状态、配置 Webhook、生成收款地址——全部是标准的 JSON 请求。下面会讲具体的 API 集成。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">方案三：直接贴钱包地址。最简单，也最累</h2>
+<p>
+直接在结账页面贴你的 USDT 地址或者比特币地址，让客户手动转账。没有中间商、没有 API、没有代码。听起来很 Web3。
+</p>
+<p>
+但这个方案在实际运营中会暴露一堆问题。客户付了，你没法自动确认——你得时不时查区块浏览器，然后手动更新订单状态。客户贴错了金额，差 0.001 USDT——链上不会告诉你"金额不匹配"，你要人工对账。如果你收 5 种币、10 条链，地址管理本身就会变成噩梦。而且没有 Webhook，你的后端不会知道钱到账了，发货、发会员都得人工操作。
+</p>
+<p>
+贴钱包地址适合"偶尔收一笔"的场景——博客接受打赏、开源项目收捐赠。不适合任何需要自动化的商业收款。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">实战：用 Xcash API 在你的网站接加密货币收款</h2>
+<p>
+假设你已经按教程部署了 Xcash（或者看 <a href="/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">部署教程</a>），服务器在 <code>https://pay.你的域名.com</code>。接下来分四步把收款接进网站。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">第 1 步：创建一个 API Token</h3>
+<p>
+登录后台管理面板 → API Tokens → 创建一个 token，记下来。这个 token 用来认证所有 API 请求。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">第 2 步：结账时创建发票</h3>
+<p>
+客户点了"用加密货币付款"，你的后端向 Xcash 发一个 POST 请求创建发票。把请求参数写到一个 JSON 文件里（避免内联大段 JSON）：</p>
+<pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm"><code>curl -X POST https://pay.你的域名.com/api/v1/invoices/ \
+  -H "Authorization: Token YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d @invoice_payload.json</code></pre>
+<p>
+<code>invoice_payload.json</code> 的内容包含金额、币种、链、订单号、回调地址等字段。返回的 JSON 里有一个 <code>payment_url</code>——这是客户付款的页面链接。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">第 3 步：嵌入付款页面</h3>
+<p>
+你有三个方式展示付款页面给客户：
+</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>跳转模式：</strong>结账页面放一个按钮，点击后跳转到 <code>payment_url</code>。客户在付款页面选择链、钱包，完成支付后自动返回你指定的 <code>redirect_url</code>。最简单，适合移动端</li>
+<li><strong>内嵌 iframe：</strong>在结账页面用 iframe 嵌入 <code>payment_url</code>。客户全程不离开你的网站。适合桌面端</li>
+<li><strong>纯 API 模式：</strong>前端完全自定义 UI，只通过 API 获取链上地址和支付状态。适合品牌定制要求高的场景</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">第 4 步：配置 Webhook 自动确认</h3>
+<p>
+客户付完款，Xcash 通过 Webhook 通知你的后端。你在后台配置一个 Webhook 地址，比如 <code>https://你的域名.com/api/payment-webhook/</code>。支付确认后，Xcash 会 POST 一个 JSON 过来，包含订单号、交易哈希、确认数。你的后端接收到 Webhook 后更新订单状态、发货、发通知。
+</p>
+<p>完整 API 文档见 <a href="https://docs.xca.sh" class="text-primary hover:underline">docs.xca.sh</a>。</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">加密货币收款的汇率问题</h2>
+<p>
+一个不可回避的现实：加密货币价格波动大。客户下单时 BTC 价 74800 美元，支付确认时可能变成了 74200 或 75200。怎么处理？
+</p>
+<p>
+常见做法是三种策略二选一：
+</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>锁定法币金额：</strong>客户下单时你锁定 $100 = 0.00134 BTC（按当时汇率）。客户必须在指定时间窗口内（通常 15-30 分钟）完成支付。你收到的 BTC 数量固定，由你承担汇率风险</li>
+<li><strong>锁定加密货币金额：</strong>客户下单时你直接展示"需支付 0.00134 BTC"，不锁定法币等值。客户任何时候付都行，但到账的法币价值随市价波动。由客户承担汇率风险</li>
+</ul>
+<p>
+对于大多数电商场景，锁定法币金额 + 15 分钟窗口是最实用的。Xcash 的 API 支持两种模式，创建发票时选 <code>amount_currency</code> 参数即可。
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">安全注意事项</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>API Token 放服务器端。</strong>永远不要把 API token 写在前端代码或提交到 git 仓库。创建发票的请求必须从你的后端发起</li>
+<li><strong>验证 Webhook 签名。</strong>每次收到 Webhook，验证请求头里的签名。防止伪造回调</li>
+<li><strong>收款地址用 HD 钱包的衍生地址。</strong>每笔交易生成唯一收款地址，不要重复使用。提高隐私，也方便对账。Xcash 内置 HD 钱包，自动处理</li>
+<li><strong>大额收款先走测试。</strong>上线前用测试网或者小额（$1）走完整收款流程。确保 Webhook 回调、订单状态更新都正常工作</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">哪些业务最适合接加密货币收款</h2>
+<p>不是所有业务都适合。以下场景受益最大：</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>跨境服务/自由职业：</strong>你的客户在拉美、东南亚、非洲——他们可能没有国际信用卡，但有 USDT。加密货币付款绕开银行体系，到账快、费用低</li>
+<li><strong>SaaS / 订阅制：</strong>把加密货币付款加到现有定价页，多一个付款选项。Stripe 不会因为加了这个选项就找你麻烦</li>
+<li><strong>数字商品 / 会员：</strong>API key、电子书、在线课程——发货不需要物流，支付确认后自动交付，很适合自动化</li>
+<li><strong>VPN / 托管 / 隐私类服务：</strong>用户群体本身偏好隐私和自托管，加密货币天然契合</li>
+<li><strong>GameFi / 链游：</strong>用户已经是加密原生用户，不用教育。直接收他们手里有的币</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">常见问题</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">网站接受加密货币付款需要合规吗？</h3>
+<p>
+取决于你的司法管辖区。大多数国家目前不要求接收加密货币的商户持有牌照——只要你不是代表客户托管资产。这也是自托管支付网关的优势：私钥在你手里，你只是在收自己的收款。但建议咨询当地律师确认。反洗钱方面，Xcash 集成了 MistTrack 风控，可以标记可疑地址。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">自托管支付网关和托管网关比，稳不稳定？</h3>
+<p>
+自托管方案的稳定性取决于你的服务器。一台 Ubuntu 22.04 VPS + Docker Compose，跑几个月不出问题是常态。托管网关的稳定性靠平台——它们也在用服务器。区别在于：自托管断了自己能修，托管断了只能等。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">网站能同时支持法币和加密货币付款吗？</h3>
+<p>
+可以。加密货币支付网关是独立的一层——你仍然可以用 Stripe/PayPal 收法币。在结账页面加一个"用加密货币付款"的选项，后端分别处理两条支付链路。Xcash 的 API 设计就是为了嵌入已有支付系统。
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">我的客户不用加密货币怎么办？</h3>
+<p>
+问你自己一个问题：你的客户是不用加密货币，还是没有机会用？数据不骗人——稳定币月活地址数在 2026 年 Q1 突破了 3000 万。加密货币付款不是替代法币，是给多一种选择。多一个付款选项，转化率只会更高，不会更低。
+</p>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">相关阅读</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/blog/deploy-crypto-payment-gateway-docker/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">教程 · Docker</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">三分钟用 Docker 部署加密货币支付网关</h3>
+              </a>
+              <a href="/blog/how-to-accept-bitcoin-payments-self-hosted-vs-hosted/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">比特币 · 对比</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">如何接受比特币付款？自托管 vs 托管方案全面对比</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>
