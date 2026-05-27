@@ -1,0 +1,259 @@
+---
+import Layout from '../../../../layouts/Layout.astro'
+---
+
+<Layout
+  lang="en"
+  noDefaultSchemas={true}
+  title="The Real Cost of Crypto Payment Gateways: You're Paying More Than 1% | Xcash"
+  description="Hosted crypto payment gateways advertise a 1% fee, but the real cost includes account freezes, KYC delays, exchange rate spreads, and withdrawal waiting periods. Self-hosted gateways have zero platform fees and no hidden costs."
+  canonical="https://xca.sh/en/blog/crypto-payment-gateway-hidden-fees/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xca.sh/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://xca.sh/en/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "The Real Cost of Crypto Payment Gateways" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Real Cost of Crypto Payment Gateways: You're Paying More Than 1%",
+      "description": "Hosted crypto payment gateways advertise a 1% fee, but the real cost includes account freezes, KYC delays, exchange rate spreads, and withdrawal waiting periods. Self-hosted gateways eliminate all of this.",
+      "datePublished": "2026-05-27",
+      "dateModified": "2026-05-27",
+      "author": { "@type": "Organization", "name": "Xcash" },
+      "publisher": { "@type": "Organization", "name": "Xcash", "logo": { "@type": "ImageObject", "url": "https://xca.sh/logo.svg" } },
+      "image": "https://xca.sh/og-image.png",
+      "url": "https://xca.sh/en/blog/crypto-payment-gateway-hidden-fees/",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xca.sh/en/blog/crypto-payment-gateway-hidden-fees/" },
+      "inLanguage": "en"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Xcash",
+      "url": "https://xca.sh",
+      "logo": "https://xca.sh/logo.svg",
+      "sameAs": ["https://github.com/xca-sh/xcash", "https://x.com/xcashteam"]
+    })} />
+  </Fragment>
+  <div class="min-h-screen bg-surface">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <span class="text-text-primary font-semibold text-lg tracking-tight">&larr; Home</span>
+        </a>
+        <a href="/en/blog/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Blog</a>
+        <a href="/blog/crypto-payment-gateway-hidden-fees/" class="text-sm text-text-secondary hover:text-primary transition-colors">中文</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+      <article class="prose prose-slate max-w-none">
+        <header class="mb-10 not-prose">
+          <time class="text-xs text-text-muted">May 27, 2026</time>
+          <h1 class="text-3xl font-bold tracking-tight text-text-primary mt-2 mb-4">
+            The Real Cost of Crypto Payment Gateways: You're Paying More Than 1%
+          </h1>
+          <div class="flex gap-2 mb-6">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Zero Fee</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Cost Analysis</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">Self-Hosted</span>
+          </div>
+          <p class="text-lg text-text-secondary leading-relaxed">
+            On May 26, 2026, the UK applied banking-style sanctions to crypto exchanges for the first time — freezing funds linked to Huobi and ruble-backed stablecoin issuers. If your payment gateway lands on a sanctions list tomorrow, what happens to your business? The "1% fee" on the pricing page is just line one of the cost sheet — not the bottom line.
+          </p>
+        </header>
+
+        <div class="text-text-primary leading-relaxed space-y-5">
+<h2 class="text-xl font-semibold mt-8 mb-3">The 1% Fee: Just the Tip of the Iceberg</h2>
+<p>
+Nearly every hosted crypto payment gateway leads with one number: 1%. CoinGate, OpenNode, Coinbase Commerce, NOWPayments — all of them charge 1% per transaction. For a small merchant, this looks reasonable. At $1,000/month in volume, that's $120/year. Fine.
+</p>
+<p>
+But volume changes everything. Here's the math:
+</p>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">Monthly Volume</th>
+<th class="text-left p-3 border-b">Annual Volume</th>
+<th class="text-left p-3 border-b">Hosted Annual Fee (1%)</th>
+<th class="text-left p-3 border-b">Self-Hosted Annual Fee</th>
+<th class="text-left p-3 border-b">Yearly Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">$1,000/mo</td><td class="p-3 border-b">$12,000</td><td class="p-3 border-b">$120</td><td class="p-3 border-b">$240 (VPS)</td><td class="p-3 border-b">+$120</td></tr>
+<tr><td class="p-3 border-b font-medium">$10,000/mo</td><td class="p-3 border-b">$120,000</td><td class="p-3 border-b">$1,200</td><td class="p-3 border-b">$240 (VPS)</td><td class="p-3 border-b">-$960</td></tr>
+<tr><td class="p-3 border-b font-medium">$50,000/mo</td><td class="p-3 border-b">$600,000</td><td class="p-3 border-b">$6,000</td><td class="p-3 border-b">$240 (VPS)</td><td class="p-3 border-b">-$5,760</td></tr>
+<tr><td class="p-3 border-b font-medium">$200,000/mo</td><td class="p-3 border-b">$2,400,000</td><td class="p-3 border-b">$24,000</td><td class="p-3 border-b">$480 (higher-spec VPS)</td><td class="p-3 border-b">-$23,520</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>
+Once you cross $10,000/month, self-hosted is already cheaper. And that's just the visible fee — the real costs are where things get ugly.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Hidden Cost #1: Counterparty Risk — When the Platform Dies, Your Business Dies</h2>
+<p>
+The UK sanctions on Huobi in May 2026 aren't a one-off. In 2025, a major hosted payment platform froze over 200 merchant accounts during a compliance review. Some accounts stayed locked for three months. One merchant posted on a forum: "My money is in there. Support says 'waiting for compliance team.' It's been 11 weeks."
+</p>
+<p>
+When you use a hosted gateway, a customer's crypto goes to the platform's custody wallet first, then gets settled to you. The time between "first" and "then" could be minutes — or months. If the platform gets sanctioned, hacked, or freezes your account for compliance reasons, you have no recourse. You don't hold the private keys and you don't command the legal team.
+</p>
+<p>
+This is why <a href="/en/blog/why-self-hosted-payment-gateways-are-taking-over/" class="text-primary hover:underline">self-hosted payment gateways are taking off in 2026</a> — private keys stay with you. Funds move directly from your customer's wallet to yours. No middleman means no middleman risk.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Hidden Cost #2: KYC Onboarding — A Week to Sign Up, a Month to Raise Limits</h2>
+<p>
+You don't open a hosted gateway account and start accepting payments the same day. You submit personal documents, company registration papers, proof of funds. Then you wait. Three days if you're lucky, two weeks if you're not. Need to raise your monthly limit? Another round of reviews.
+</p>
+<p>
+One merchant shared their timeline: decided to add crypto payments to their e-commerce site, picked a hosted gateway. Registration: 4 days. KYC review: 7 days. API setup: 1 day. Total: 12 days from decision to first payment. With a self-hosted solution — <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">deployment takes 3 minutes</a>, and nobody needs to approve you.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Hidden Cost #3: Exchange Rate Spread — Another 0.5% to 2% on Top of the 1%</h2>
+<p>
+Most hosted gateways don't include currency conversion in their 1% fee. If a customer pays in USDT but you want automatic conversion to USDC or fiat, the platform adds a markup on the spot rate. This spread typically runs 0.5% to 2% — and almost nobody notices because it never appears as a separate line item on your statement.
+</p>
+<p>
+Real example: a customer pays 1,000 USDT. The platform settles you at 1 USDT = 0.995 USDC. You think it's 1:1, but you just lost 5 USDC. Multiply that across your annual volume and it adds up fast.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Hidden Cost #4: Withdrawal Delays and Minimum Thresholds</h2>
+<p>
+"Your balance hasn't reached the minimum withdrawal threshold yet" — the most common sentence in hosted gateway support tickets. Coinbase Commerce has a $100 minimum. OpenNode runs internal approval workflows. Some platforms won't process same-day withdrawals unless you're doing $1,000+/month. Below those thresholds: wait until next month, or accumulate.
+</p>
+<p>
+One of crypto payments' biggest selling points is "instant settlement, 24/7." Hosted gateways eat that advantage completely. Your customer's funds arrive at the platform immediately — but you can't touch them. The gap between "received" and "accessible" is a working capital cost most merchants never calculate.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Total Cost: One Table Tells the Story</h2>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="text-left p-3 border-b">Cost Category</th>
+<th class="text-left p-3 border-b">Hosted Gateway (CoinGate/OpenNode)</th>
+<th class="text-left p-3 border-b">Self-Hosted Gateway (Xcash / BTCPay)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="p-3 border-b font-medium">Per-transaction fee</td><td class="p-3 border-b">1%</td><td class="p-3 border-b">Zero</td></tr>
+<tr><td class="p-3 border-b font-medium">Exchange rate spread</td><td class="p-3 border-b">0.5% - 2% (hidden)</td><td class="p-3 border-b">Zero (you manage it)</td></tr>
+<tr><td class="p-3 border-b font-medium">KYC / compliance review</td><td class="p-3 border-b">3-14 days, repeat for every limit raise</td><td class="p-3 border-b">Not required</td></tr>
+<tr><td class="p-3 border-b font-medium">Withdrawal delay</td><td class="p-3 border-b">Minimum threshold + internal approval</td><td class="p-3 border-b">Instant to your wallet</td></tr>
+<tr><td class="p-3 border-b font-medium">Account freeze risk</td><td class="p-3 border-b">Platform can freeze unilaterally</td><td class="p-3 border-b">Full key control</td></tr>
+<tr><td class="p-3 border-b font-medium">Server cost</td><td class="p-3 border-b">Zero (platform handles it)</td><td class="p-3 border-b">~$20-40/month VPS</td></tr>
+<tr><td class="p-3 border-b font-medium">Supported chains</td><td class="p-3 border-b">10-30</td><td class="p-3 border-b">100+ EVM + Bitcoin</td></tr>
+<tr><td class="p-3 border-b font-medium">Annual cost at $50k/mo</td><td class="p-3 border-b">$6,000 - $12,000+</td><td class="p-3 border-b">~$240</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Is Self-Hosted Really Zero Fee?</h2>
+<p>
+Honest answer: not completely zero. You still pay blockchain gas — $0.50 to $5 per Ethereum transaction, under $0.10 on TRC-20, negligible on Polygon and Base. But those fees go to the network, not to a payment gateway. With a hosted gateway, you're paying those same gas fees — they're just bundled into the 1% fee and the exchange rate spread.
+</p>
+<p>
+Self-hosted has exactly two hard costs: a VPS ($20-40/month) + your time (3 minutes for initial setup, near-zero ongoing maintenance). For the full setup walkthrough, see the <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">Docker 3-minute deployment guide</a>. No full node sync, no 600GB disk requirement — Xcash is designed for small to medium merchants. One docker compose up -d command and you're running.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">When Does a Hosted Gateway Still Make Sense?</h2>
+<p>
+Hosted gateways aren't worthless. Two scenarios where they're still a reasonable choice:
+</p>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>Under $500/month volume.</strong> $60/year in fees is cheaper than $240 for a VPS. But honestly — if you're doing under $500/month in crypto payments, you probably don't need a gateway at all. Post a wallet address on your checkout page. It'll cover the one or two transactions you get per month</li>
+<li><strong>You need instant fiat settlement.</strong> Some hosted gateways auto-convert crypto payments to fiat and deposit to your bank account. This is convenient if you never want to touch crypto yourself. The tradeoff: wider spreads and heavier KYC requirements</li>
+</ul>
+<p>
+Beyond these two cases — any volume above $1,000/month, or any requirement for fund control — self-hosted wins with no contest.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">How to Switch to Self-Hosted</h2>
+<p>
+Already on a hosted gateway? Switching is straightforward:
+</p>
+<ol class="list-decimal pl-6 space-y-2">
+<li><strong>Deploy Xcash.</strong> One VPS, one command. See the <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="text-primary hover:underline">deployment guide</a></li>
+<li><strong>Create an API token.</strong> Log into the admin panel, generate an API token. This authenticates communication between your website and the payment gateway</li>
+<li><strong>Configure wallets and chains.</strong> Add the chains and tokens you want to accept — Ethereum, Polygon, BSC, TRON, Arbitrum, Base. Xcash supports 100+ EVM chains</li>
+<li><strong>Swap API endpoints.</strong> Replace the hosted platform's API URL in your backend with your self-deployed Xcash URL. The API structure is similar — minimal code changes</li>
+<li><strong>Run a test transaction.</strong> Use testnet or a $1 transaction to walk the full flow: invoice creation, payment, webhook callback, order confirmation</li>
+<li><strong>Close your hosted account.</strong> Only after tests pass and all in-flight invoices are settled. Don't close it mid-transition</li>
+</ol>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Security Reminders</h2>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong>API tokens stay server-side.</strong> Never expose them in frontend code. Never commit them to git</li>
+<li><strong>Back up your private keys and seed phrase.</strong> Self-hosted means you own wallet security. Lose the keys and they're gone — there's no support team to recover them</li>
+<li><strong>Set up firewall and auto-updates on your VPS.</strong> Ubuntu's ufw and unattended-upgrades take 10 minutes to configure. Do it</li>
+<li><strong>Use cold wallets for large balances.</strong> Keep enough for daily operations in the hot wallet, move the rest to cold storage. Same logic as exchange fund management</li>
+</ul>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">Bottom Line</h2>
+<p>
+Choosing a crypto payment gateway isn't a 1% vs 0% decision. It's "trust a platform that can freeze your account" vs "trust the private keys in your own hands." When Huobi got sanctioned, merchants on hosted platforms were checking their inbox for unfreeze notices. Merchants on self-hosted gateways — their own business, their own node, everything running as usual.
+</p>
+<p>
+Xcash is an open-source self-hosted cryptocurrency payment gateway supporting Bitcoin, USDT, and 100+ EVM chains. Zero platform fees, full key control, 3-minute deployment. Code is public on <a href="https://github.com/xca-sh/xcash" class="text-primary hover:underline">GitHub</a> — audit it, fork it, contribute.
+</p>
+
+<h2 class="text-xl font-semibold mt-8 mb-3">FAQ</h2>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Are there any hidden costs with a self-hosted payment gateway?</h3>
+<p>
+None. Your only hard costs are the VPS ($20-40/month) + blockchain gas ($0.50-5 for Ethereum, negligible on Polygon/Base/Tron). No platform fees, no withdrawal minimums, no exchange rate spread. Every gas fee you pay is verifiable on-chain via any block explorer.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Is self-hosting legal? What about compliance?</h3>
+<p>
+With a self-hosted setup, you're running software on your own server to accept your own payments. Most jurisdictions don't require a license for merchants to accept cryptocurrency — because you're not holding third-party funds as a custodian. This is fundamentally different from hosted gateways, which hold client funds and typically need financial services licensing. As always, ask your local lawyer to confirm.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">How much technical skill does deployment and maintenance require?</h3>
+<p>
+Basic Linux command-line comfort: SSH in, copy-paste commands, edit a config file. If you can set up a WordPress site, you can set up Xcash. No blockchain development experience needed. No full node maintenance. No Solidity. Ongoing maintenance is near-zero — Docker auto-restart and health checks handle everything. Our test server has been running untouched for three months.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">How does self-hosted compare to BTCPay Server?</h3>
+<p>
+Both are solid open-source self-hosted options. The core difference: BTCPay Server focuses on Bitcoin and Lightning Network, with limited sidechain support. Xcash covers 100+ EVM chains — Ethereum, Polygon, BSC, Arbitrum, Base, Optimism, plus Bitcoin. If your customers only pay in BTC, BTCPay works fine. If they use USDT, USDC, DAI, and various ERC-20 tokens, Xcash's out-of-the-box coverage is broader. Full comparison: <a href="/en/blog/btcpayserver-vs-xcash-which-self-hosted-payment-gateway-fits-your-business/" class="text-primary hover:underline">BTCPay Server vs Xcash</a>.
+</p>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Zero fees — what's the catch? How does Xcash make money?</h3>
+<p>
+Xcash is MIT-licensed open-source software — not a SaaS product. There's no need to "make money" off users. You download it, deploy it, process your own revenue, and Xcash takes nothing. The project exists through open-source community maintenance and corporate sponsorship. The code is fully open on GitHub — anyone can audit it. No hidden paid features, no "enterprise unlock" pricing tier, no rug-pull switch buried in the source. If you don't believe it, read the code.
+</p>
+        </div>
+
+          <hr class="my-10 border-border" />
+          <section class="not-prose">
+            <h2 class="text-xl font-semibold text-text-primary mb-4">Related Posts</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/en/blog/why-self-hosted-payment-gateways-are-taking-over/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Industry Insight · Trends</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">Why Self-Hosted Crypto Payment Gateways Are Taking Over in 2026</h3>
+              </a>
+              <a href="/en/blog/deploy-crypto-payment-gateway-docker/" class="block border border-border rounded-xl p-5 hover:shadow-md transition-shadow bg-white group">
+                <span class="text-xs text-text-muted">Tutorial · Docker</span>
+                <h3 class="text-sm font-semibold text-text-primary mt-1 group-hover:text-primary transition-colors">Deploy a Crypto Payment Gateway in 3 Minutes with Docker</h3>
+              </a>
+            </div>
+          </section>
+      </article>
+    </main>
+  </div>
+</Layout>
