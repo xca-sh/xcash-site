@@ -148,6 +148,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xca.sh/blog/why-self-custody-matters-lessons-from-crypto-hacks/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/why-self-custody-matters-lessons-from-crypto-hacks/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/why-self-custody-matters-lessons-from-crypto-hacks/" />
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xca.sh/en/blog/why-self-custody-matters-lessons-from-crypto-hacks/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://xca.sh/blog/why-self-custody-matters-lessons-from-crypto-hacks/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://xca.sh/en/blog/why-self-custody-matters-lessons-from-crypto-hacks/" />
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://docs.xca.sh/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
